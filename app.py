@@ -63,3 +63,18 @@ if st.button("Calculate Final Weight"):
         st.write(f"- Desirable (GP/Sub): {desirable_score}")
         st.write(f"- O-Level Score: {o_level_score:.2f}")
         st.write(f"- Gender Bonus: {gender_bonus}")
+st.markdown(
+    """
+    <style>
+    .main {
+        background-color: #f0f2f6;
+    }
+    .stButton>button {
+        color: white;
+        background-color: #00ff00;
+        border-radius: 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
