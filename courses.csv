@@ -3,3 +3,4 @@ MAM,Medicine and Surgery,Biology,Chemistry,Math or Physics,GP + SubMath/ICT
 CIV,Civil Engineering,Math,Physics,Chemistry,GP + ICT
 LAW,Bachelor of Laws,Any,Any,Any,GP + SubMath/ICT
 BIC,Industrial Chemistry,Chemistry,Math or Physics,Biology,GP + SubMath/ICT
+COM,Bachelor of Commerce,Economics,Math,physics or history,GP + SubMath
