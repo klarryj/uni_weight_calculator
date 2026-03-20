@@ -1,0 +1,17 @@
+Course_Code,Course_Name,Essential_1,Essential_2,Relevant,Desirable,Cut_off
+AGR,Bachelor of Science in Agriculture,Biology,Chemistry/Agriculture,Geography/Mathematics/Physics,General Paper,38.5
+AGB,Bachelor of Agribusiness,Economics/Agriculture,,Geography/Entrepreneurship,General Paper,37.6
+
+BIT,Bachelor of Information Technology,Any,Any,Any,General Paper,41.5
+CSC,Bachelor of Science in Computer Science,Mathematics,Physics/Economics,Chemistry/Geography,General Paper,42.9
+
+BBA,Bachelor of Business Administration,Economics/Entrepreneurship,,Any,General Paper,40.3
+COM,Bachelor of Commerce,Economics/Mathematics,,Any,General Paper,39.7
+
+DEV,Bachelor of Development Studies,Any,Any,Geography/Economics,General Paper,38.9
+SWK,Bachelor of Social Work and Social Administration,Any,Any,History/CRE/Geography,General Paper,39.4
+
+AED,Bachelor of Arts with Education,Any,Any,Relevant Arts subjects,General Paper,36.2
+SEB,Bachelor of Science Education (Biology),Biology,Chemistry,Mathematics/Physics,General Paper,37.5
+SEP,Bachelor of Science Education (Physics),Mathematics,Physics,Chemistry/Economics,General Paper,38.2
+SEM,Bachelor of Science Education (Mathematics),Mathematics,,Physics/Economics,General Paper,37.9
