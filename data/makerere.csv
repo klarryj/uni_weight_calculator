@@ -1,5 +1,29 @@
-Course_Code,Course_Name,Essential_1,Essential_2,Relevant,Desirable
-MAM,Medicine and Surgery,Biology,Chemistry,Math or Physics,GP + SubMath/ICT
-CIV,Civil Engineering,Math,Physics,Chemistry,GP + ICT
-LAW,Bachelor of Laws,Any,Any,Any,GP + SubMath/ICT
-BIC,Industrial Chemistry,Chemistry,Math or Physics,Biology,GP + SubMath/ICT
+Course_Code,Course_Name,Essential_1,Essential_2,Relevant,Desirable,Cut_off
+MAM,Bachelor of Medicine and Bachelor Surgery,Biology,Chemistry,Mathematics/Physics,General Paper,49.4
+BDS,Bachelor of Dental Surgery,Biology,Chemistry,Mathematics/Physics,General Paper,48.2
+PHA,Bachelor of Pharmacy,Biology,Chemistry,Mathematics/Physics,General Paper,48.1
+NUR,Bachelor of Nursing Science,Biology,Chemistry,Agriculture/Math/Physics/Food & Nutrition/Economics,General Paper,46.3
+BMR,Bachelor of Science in Medical Radiography,Biology,Physics,Other science subjects,General Paper,46.0
+BEH,Bachelor of Environmental Health Science,Biology,Chemistry,Physics/Math/Agriculture/Food & Nutrition/Geography/Economics,General Paper,44.5
+VET,Bachelor of Veterinary Medicine,Biology,Chemistry,Math/Physics/Agriculture/Food & Nutrition,General Paper,45.2
+MLT,Bachelor of Biomedical Laboratory Technology,Biology,Chemistry,Any A-Level subject,General Paper,45.3
+AGR,Bachelor of Science in Agriculture,Biology,Chemistry/Agriculture,Physics/Geography/Math,General Paper,40.3
+FST,Bachelor of Science in Food Science and Technology,Biology,Chemistry,Physics/Agriculture/Math/Food & Nutrition,General Paper,44.7
+AGE,Bachelor of Science in Agricultural Engineering,Mathematics,Physics,Chemistry/Agriculture/Economics/Technical Drawing,General Paper,46.1
+ARC,Bachelor of Architecture,Mathematics,Art/Technical Drawing,Physics/Economics/Geography,General Paper,51.1
+ELE,Bachelor of Science in Electrical Engineering,Mathematics,Physics,Chemistry/Economics/Technical Drawing,General Paper,49.3
+CIV,Bachelor of Science in Civil Engineering,Mathematics,Physics,Chemistry/Economics/Geography,General Paper,52.1
+MEC,Bachelor of Science in Mechanical Engineering,Mathematics,Physics,Chemistry/Economics/Technical Drawing,General Paper,48.5
+STA,Bachelor of Statistics,Mathematics,,Economics/Physics,General Paper,37.4
+SAS,Bachelor of Science in Actuarial Science,Mathematics,,Chemistry/Physics/Economics/Geography,General Paper,40.9
+ECO,Bachelor of Arts in Economics,Economics,,Mathematics/History/Geography/Agriculture,General Paper,43.4
+LAW,Bachelor of Laws,Any,Any,Any,General Paper,66%
+CSC,Bachelor of Science in Computer Science,Mathematics,Physics/Chemistry/Economics,Other A-Level subjects,General Paper,47.7
+BSW,Bachelor of Science in Software Engineering,Mathematics,Physics/Economics/Geography/Chemistry,Other A-Level subjects,General Paper,49.3
+BIC,Bachelor of Science in Industrial Chemistry,Chemistry,Mathematics/Physics,Biology/Physics,General Paper,44.4
+BQE,Bachelor of Science in Quantitative Economics,Mathematics,Economics,Physics/Geography/Entrepreneurship,General Paper,46.4
+BBA,Bachelor of Business Administration,Economics/Entrepreneurship,,Other A-Level subjects,General Paper,48.4
+COM,Bachelor of Commerce,Economics/Mathematics,,Physics/Geography/Entrepreneurship,General Paper,45.1
+IST,Bachelor of Information Systems and Technology,Physics/Math/Chemistry/Economics,Any,Other A-Level subjects,General Paper,48.5
+BTH,Bachelor of Tourism and Hospitality Management,Economics/Geography/Biology/Food & Nutrition,Any,Math/History/Language,General Paper,50.5
+APS,Bachelor of Applied Psychology,Any,Any,Any,General Paper,51.6
