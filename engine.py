@@ -24,6 +24,11 @@ def get_weight(subject_grades, course_reqs, o_level_data, gender):
 
 def get_color_status(user_weight, cut_off):
     """Determines eligibility status based on historical cut-offs."""
+    
+    # If there is no cut-off data (0), we can't give a status
+    if cut_off == 0:
+        return "No Data", "#6c757d" # Grey color
+        
     if user_weight >= cut_off + 1.0:
         return "Safe", "#28a745" # Green
     elif user_weight >= cut_off - 0.5:
