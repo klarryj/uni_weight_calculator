@@ -74,8 +74,6 @@ if st.button("🚀 RUN COMPASS ANALYSIS", use_container_width=True):
         df.columns = df.columns.str.strip()
         
         # ... (rest of your calculation loop goes here)
-}
-
 
 
         for _, row in df.iterrows():
