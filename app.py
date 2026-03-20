@@ -1,80 +1,91 @@
+# app.py
 import streamlit as st
 import pandas as pd
+from engine import get_weight, GRADE_POINTS
 
-# 1. Configuration & Data Loading
-st.set_page_config(page_title="Uganda Uni Weight Calculator", layout="centered")
-df = pd.read_csv('courses.csv')
+st.set_page_config(page_title="Uganda Uni Compass", layout="wide")
 
-# Grade to Point Mapping
-grade_points = {'A': 6, 'B': 5, 'C': 4, 'D': 3, 'E': 2, 'O': 1, 'F': 0}
+# Load the CSV data
+@st.cache_data
+def load_data():
+    return pd.read_csv('courses.csv')
 
-st.title("🇺🇬 University Weighting Calculator")
-st.write("Calculate your weight for Public Universities (2026/2027 Academic Year)")
+df = load_data()
 
-# 2. User Inputs: Course Selection
-target_course = st.selectbox("Select your target course:", df['Course_Name'].unique())
-course_info = df[df['Course_Name'] == target_course].iloc[0]
+st.title("🧭 The Admissions Compass")
+st.markdown("Enter your results below to discover every course you qualify for.")
 
-st.info(f"**Weighting Criteria for {target_course}:** \n\n"
-        f"Essential: {course_info['Essential_1']}, {course_info['Essential_2']} | "
-        f"Relevant: {course_info['Relevant']}")
+# --- SIDEBAR: O-LEVEL & PROFILE ---
+with st.sidebar:
+    st.header("1. Personal Profile")
+    gender = st.radio("Gender", ["Male", "Female"])
+    
+    st.header("2. O-Level Results")
+    o_d = st.number_input("Distinctions (D1-D2)", 0, 10, 0)
+    o_c = st.number_input("Credits (C3-C6)", 0, 10, 0)
+    o_p = st.number_input("Passes (P7-P8)", 0, 10, 0)
+    
+    o_level_data = {'D': o_d, 'C': o_c, 'P': o_p}
 
-# 3. User Inputs: A-Level Grades
-st.subheader("A-Level Results")
+# --- MAIN PAGE: A-LEVEL RESULTS ---
+st.subheader("3. Your A-Level Grades")
 col1, col2, col3 = st.columns(3)
 
+# For testing, we let the user select subjects and grades
+# In the final version, this will be more dynamic
 with col1:
-    e1 = st.selectbox("Essential 1 Grade", ['A', 'B', 'C', 'D', 'E', 'O', 'F'])
+    subj1_name = st.selectbox("Subject 1", ["Biology", "Chemistry", "Physics", "Math", "Economics"])
+    subj1_grade = st.selectbox("Grade 1", list(GRADE_POINTS.keys()))
+
 with col2:
-    e2 = st.selectbox("Essential 2 Grade", ['A', 'B', 'C', 'D', 'E', 'O', 'F'])
+    subj2_name = st.selectbox("Subject 2", ["Biology", "Chemistry", "Physics", "Math", "Economics"], index=1)
+    subj2_grade = st.selectbox("Grade 2", list(GRADE_POINTS.keys()))
+
 with col3:
-    rel = st.selectbox("Relevant Grade", ['A', 'B', 'C', 'D', 'E', 'O', 'F'])
+    subj3_name = st.selectbox("Subject 3", ["Biology", "Chemistry", "Physics", "Math", "Economics"], index=2)
+    subj3_grade = st.selectbox("Grade 3", list(GRADE_POINTS.keys()))
 
-sub_passed = st.checkbox("Passed Sub-Math or ICT? (1 point)")
-gp_passed = st.checkbox("Passed General Paper? (1 point)")
+c1, c2 = st.columns(2)
+gp_pass = c1.checkbox("Passed General Paper?")
+sub_pass = c2.checkbox("Passed Sub-Math/ICT?")
 
-# 4. User Inputs: O-Level & Gender
-st.subheader("O-Level & Other Factors")
-o_dist = st.number_input("Number of Distinctions (D1-D2)", min_value=0, max_value=10, value=0)
-o_cred = st.number_input("Number of Credits (C3-C6)", min_value=0, max_value=10, value=0)
-o_pass = st.number_input("Number of Passes (P7-P8)", min_value=0, max_value=10, value=0)
+# Pack grades into a dictionary for the engine
+user_grades = {
+    subj1_name: subj1_grade,
+    subj2_name: subj2_grade,
+    subj3_name: subj3_grade,
+    'GP': gp_pass,
+    'Sub': sub_pass
+}
 
-gender = st.radio("Gender", ["Male", "Female"])
+# --- THE DISCOVERY ENGINE ---
+if st.button("🚀 DISCOVER MY COURSES", use_container_width=True):
+    results = []
+    
+    for _, row in df.iterrows():
+        # Calculate weight using the engine
+        try:
+            score = get_weight(user_grades, row, o_level_data, gender)
+            results.append({
+                "Course": row['Course_Name'],
+                "Code": row['Course_Code'],
+                "Your Weight": score
+            })
+        except Exception as e:
+            # Skip courses where subjects don't match the current test list
+            continue
 
-# 5. Calculation Logic
-if st.button("Calculate Final Weight"):
-    # A-Level Calculation
-    a_level_score = (grade_points[e1] * 3) + (grade_points[e2] * 3) + (grade_points[rel] * 2)
-    desirable_score = (1 if sub_passed else 0) + (1 if gp_passed else 0)
-    
-    # O-Level Calculation (D=0.3, C=0.2, P=0.1)
-    o_level_score = (o_dist * 0.3) + (o_cred * 0.2) + (o_pass * 0.1)
-    
-    # Gender Bonus
-    gender_bonus = 1.5 if gender == "Female" else 0
-    
-    total_weight = a_level_score + desirable_score + o_level_score + gender_bonus
-    
-    # Display Results
-    st.success(f"### Your Total Weight: {total_weight:.2f}")
-    
-    with st.expander("See Weight Breakdown"):
-        st.write(f"- A-Level Essentials & Relevant: {a_level_score}")
-        st.write(f"- Desirable (GP/Sub): {desirable_score}")
-        st.write(f"- O-Level Score: {o_level_score:.2f}")
-        st.write(f"- Gender Bonus: {gender_bonus}")
-st.markdown(
-    """
-    <style>
-    .main {
-        background-color: #f0f2f6;
-    }
-    .stButton>button {
-        color: white;
-        background-color: #00ff00;
-        border-radius: 20px;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+    if results:
+        results_df = pd.DataFrame(results).sort_values(by="Your Weight", ascending=False)
+        
+        st.subheader("Your Discovery Dashboard")
+        st.write(f"Showing {len(results_df)} courses you qualify for:")
+        
+        # Display as a clean table
+        st.dataframe(results_df, use_container_width=True, hide_index=True)
+        
+        # Highlight top choice
+        top_course = results_df.iloc[0]
+        st.success(f"🌟 Your best fit is **{top_course['Course']}** with a weight of **{top_course['Your Weight']}**")
+    else:
+        st.warning("No courses found. Ensure your A-Level subjects match the requirements.")
