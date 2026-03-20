@@ -1,0 +1,17 @@
+Course_Code,Course_Name,Essential_1,Essential_2,Relevant,Desirable,Cut_off
+LMB,Bachelor of Medicine and Bachelor of Surgery,Biology,Chemistry,Mathematics/Physics,General Paper,47.5
+NUR,Bachelor of Nursing Science,Biology,Chemistry,Mathematics/Physics,General Paper,42.9
+MLS,Bachelor of Medical Laboratory Science,Biology,Chemistry,Mathematics/Physics,General Paper,43.6
+MID,Bachelor of Midwifery,Biology,Chemistry,Mathematics/Physics,General Paper,41.5
+PHE,Bachelor of Public Health,Biology,Chemistry,Geography/Mathematics,General Paper,40.8
+
+BIT,Bachelor of Information Technology,Any,Any,Any,General Paper,41.9
+CSC,Bachelor of Science in Computer Science,Mathematics,Physics/Economics,Chemistry/Geography,General Paper,43.2
+
+BBA,Bachelor of Business Administration,Economics/Entrepreneurship,,Any,General Paper,40.7
+COM,Bachelor of Commerce,Economics/Mathematics,,Any,General Paper,39.9
+
+AED,Bachelor of Arts with Education,Any,Any,Relevant Arts subjects,General Paper,36.5
+SEB,Bachelor of Science Education (Biology),Biology,Chemistry,Mathematics/Physics,General Paper,37.9
+SEP,Bachelor of Science Education (Physics),Mathematics,Physics,Chemistry/Economics,General Paper,38.6
+SEM,Bachelor of Science Education (Mathematics),Mathematics,,Physics/Economics,General Paper,38.1
