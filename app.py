@@ -64,21 +64,28 @@ file_map = {
 
 # --- DISCOVERY DASHBOARD ---
 if st.button("🚀 RUN COMPASS ANALYSIS", use_container_width=True):
-    # This line (line 57) will no longer throw a KeyError because every
-    # choice in 'universities' is now a key in 'file_map'.
     try:
         csv_path = file_map[uni_choice]
         df = pd.read_csv(csv_path)
         
-        # Clean up column names just in case there are hidden spaces from the CSV creation
+        # CLEANUP STEP 1: Remove accidental spaces from headers
         df.columns = df.columns.str.strip()
         
-        # ... (rest of your calculation loop goes here)
+        # CLEANUP STEP 2: Force 'Cut_off' to be numeric. 
+        # 'errors=coerce' turns non-numbers (like empty cells or "TBA") into NaN (Not a Number)
+        df['Cut_off'] = pd.to_numeric(df['Cut_off'], errors='coerce')
+        
+        # CLEANUP STEP 3: Fill any missing cut-offs with 0 so the math doesn't crash
+        df['Cut_off'] = df['Cut_off'].fillna(0)
 
-
+        results = []
         for _, row in df.iterrows():
             weight = get_weight(user_grades, row, o_level_data, gender)
+            
+            # Now row['Cut_off'] is guaranteed to be a float
             status, color = get_color_status(weight, row['Cut_off'])
+            
+            # ... (rest of your result appending)
             
             results.append({
                 "Course": row['Course_Name'],
