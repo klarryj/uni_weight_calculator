@@ -13,6 +13,36 @@ PROGRAMMES_FILE = DATA_DIR / "programmes.json"
 CUTOFFS_FILE = DATA_DIR / "cutoffs_2025_2026.json"
 SUBJECT_RULES_FILE = DATA_DIR / "subject_rules.json"
 
+def _clean_str(value, upper: bool = False, lower: bool = False) -> str:
+    if value is None:
+        return ""
+
+    text = str(value).strip()
+
+    if not text or text.lower() == "nan":
+        return ""
+
+    if upper:
+        return text.upper()
+
+    if lower:
+        return text.lower()
+
+    return text
+
+
+def _clean_list_of_str(values, upper: bool = False, lower: bool = False) -> list[str]:
+    if not values:
+        return []
+
+    cleaned = []
+    for value in values:
+        text = _clean_str(value, upper=upper, lower=lower)
+        if text:
+            cleaned.append(text)
+
+    return cleaned
+
 
 def _read_json(path: Path) -> Any:
     if not path.exists():
@@ -80,17 +110,11 @@ def load_programmes() -> List[Programme]:
     programmes: List[Programme] = []
 
     for item in raw_items:
-        university = str(item.get("university") or "").strip()
-        code = str(item.get("code") or "").strip().upper()
-        programme_name = str(item.get("programme_name") or "").strip()
-        level = str(item.get("level") or "").strip()
-
-        raw_schemes = item.get("schemes") or []
-        schemes = [
-            str(scheme).strip().upper()
-            for scheme in raw_schemes
-            if str(scheme).strip()
-        ]
+        university = _clean_str(item.get("university"))
+        code = _clean_str(item.get("code"), upper=True)
+        programme_name = _clean_str(item.get("programme_name"))
+        level = _clean_str(item.get("level"))
+        schemes = _clean_list_of_str(item.get("schemes", []), upper=True)
 
         if not university or not code or not programme_name:
             continue
@@ -115,18 +139,25 @@ def load_cutoffs() -> List[CutoffRecord]:
     cutoffs: List[CutoffRecord] = []
 
     for item in raw_items:
-        options = item.get("option_cutoffs") or item.get("options")
+        university = _clean_str(item.get("university"))
+        code = _clean_str(item.get("code"), upper=True)
+        academic_year = _clean_str(item.get("academic_year"))
+        cutoff_type = _clean_str(item.get("cutoff_type"), lower=True) or "none"
+        gender = _clean_str(item.get("gender"), lower=True)
+        scheme = _clean_str(item.get("scheme"), upper=True)
+
+        if not university or not code:
+            continue
 
         cutoffs.append(
             CutoffRecord(
-                university=item["university"].strip(),
-                code=item["code"].strip().upper(),
-                academic_year=item.get("academic_year", "").strip(),
-                cutoff_type=item.get("cutoff_type", "none").strip().lower(),
+                university=university,
+                code=code,
+                academic_year=academic_year,
+                cutoff_type=cutoff_type,
                 value=item.get("value"),
-                female=item.get("female"),
-                male=item.get("male"),
-                options=options,
+                gender=gender,
+                scheme=scheme,
             )
         )
 
