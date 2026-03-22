@@ -1,5 +1,5 @@
-import streamlit as st
 import json
+import streamlit as st
 
 from core.pipeline import run_full_analysis
 from core.student import build_student_profile, validate_student_profile
@@ -265,92 +265,25 @@ def render_metric_box(label: str, value) -> None:
     )
 
 
-def render_result_card(result, compact: bool = False) -> None:
-    schemes_html = render_scheme_badges(result.programme.schemes)
-    status_class = status_css(result.status)
-    card_class = card_css(result.status)
-
-    if compact:
-        st.markdown(
-            f"""
-            <div class="result-card {card_class}">
-                <div style="display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; flex-wrap:wrap;">
-                    <div>
-                        <div style="font-size:1rem; font-weight:700; color:#111;">{result.programme.programme_name}</div>
-                        <div class="small-meta">{result.programme.university}</div>
-                    </div>
-                    <div style="text-align:right;">
-                        <span class="status-pill {status_class}">{result.status.replace('_', ' ')}</span>
-                        <div style="margin-top:0.35rem; color:#333;">Weight: <strong>{result.weight}</strong></div>
-                    </div>
-                </div>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
-        return
-
-    st.markdown(
-        f"""
-        <div class="result-card {card_class}">
-            <div style="display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; flex-wrap:wrap;">
-                <div style="flex:1; min-width:230px;">
-                    <div style="font-size:1.05rem; font-weight:700; color:#111;">{result.programme.programme_name}</div>
-                    <div class="small-meta" style="margin-top:0.2rem;">{result.programme.university}</div>
-                    <div style="margin-top:0.45rem;">{schemes_html}</div>
-                </div>
-                <div style="text-align:right; min-width:155px;">
-                    <span class="status-pill {status_class}">{result.status.replace('_', ' ')}</span>
-                    <div style="margin-top:0.35rem; color:#333;">Weight: <strong>{result.weight}</strong></div>
-                    <div style="margin-top:0.2rem; color:#555;">Best Scheme: <strong>{result.best_scheme or '-'}</strong></div>
-                </div>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    with st.expander("Why this recommendation?"):
-        st.write(result.reason or "No explanation available.")
-
-        if result.status == "SAFE":
-            st.success("Strong option. Prioritize this in your applications.")
-        elif result.status == "BORDERLINE":
-            st.warning("Possible but competitive. Consider safer backups.")
-        elif result.status == "RISKY":
-            st.error("High risk. Apply only if you have safer alternatives.")
-        elif result.status == "NO_CUTOFF":
-            st.info("No cutoff data. Treat this as exploratory.")
-        elif result.status == "NOT_ELIGIBLE":
-            st.error("You do not meet minimum requirements.")
+def result_key(result) -> str:
+    return f"{result.programme.university}::{result.programme.code}"
 
 
-def render_result_group(
-    title: str,
-    subtitle: str,
-    results,
-    limit: int | None = None,
-) -> None:
-    st.markdown(
-        f"""
-        <div class="section-card">
-            <h3 style="margin-bottom:0.25rem;">{title}</h3>
-            <div class="mini-note">{subtitle}</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+def is_shortlisted(result) -> bool:
+    return result_key(result) in st.session_state.shortlist
 
-    if not results:
-        st.info("No results found in this section.")
-        return
 
-    items = results[:limit] if limit else results
-    for result in items:
-        render_result_card(result)
+def add_to_shortlist(result) -> None:
+    key = result_key(result)
+    if key not in st.session_state.shortlist:
+        st.session_state.shortlist.append(key)
 
-    if limit and len(results) > limit:
-        st.caption(f"Showing {limit} of {len(results)} results in this section.")
+
+def remove_from_shortlist(result) -> None:
+    key = result_key(result)
+    if key in st.session_state.shortlist:
+        st.session_state.shortlist.remove(key)
+
 
 def serialize_result(result) -> dict:
     return {
@@ -397,12 +330,126 @@ def build_download_payload(student, results) -> dict:
         "integrity_report": results.get("integrity_report", {}),
     }
 
+
+def render_result_card(
+    result,
+    compact: bool = False,
+    allow_shortlist: bool = False,
+) -> None:
+    schemes_html = render_scheme_badges(result.programme.schemes)
+    status_class = status_css(result.status)
+    card_class = card_css(result.status)
+
+    if compact:
+        st.markdown(
+            f"""
+            <div class="result-card {card_class}">
+                <div style="display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; flex-wrap:wrap;">
+                    <div>
+                        <div style="font-size:1rem; font-weight:700; color:#111;">{result.programme.programme_name}</div>
+                        <div class="small-meta">{result.programme.university}</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <span class="status-pill {status_class}">{result.status.replace('_', ' ')}</span>
+                        <div style="margin-top:0.35rem; color:#333;">Weight: <strong>{result.weight}</strong></div>
+                    </div>
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        return
+
+    st.markdown(
+        f"""
+        <div class="result-card {card_class}">
+            <div style="display:flex; justify-content:space-between; gap:1rem; align-items:flex-start; flex-wrap:wrap;">
+                <div style="flex:1; min-width:230px;">
+                    <div style="font-size:1.05rem; font-weight:700; color:#111;">{result.programme.programme_name}</div>
+                    <div class="small-meta" style="margin-top:0.2rem;">{result.programme.university}</div>
+                    <div style="margin-top:0.45rem;">{schemes_html}</div>
+                </div>
+                <div style="text-align:right; min-width:155px;">
+                    <span class="status-pill {status_class}">{result.status.replace('_', ' ')}</span>
+                    <div style="margin-top:0.35rem; color:#333;">Weight: <strong>{result.weight}</strong></div>
+                    <div style="margin-top:0.2rem; color:#555;">Best Scheme: <strong>{result.best_scheme or '-'}</strong></div>
+                </div>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    with st.expander(f"Why this recommendation? - {result.programme.code}"):
+        st.write(result.reason or "No explanation available.")
+
+        if result.status == "SAFE":
+            st.success("Strong option. Prioritize this in your applications.")
+        elif result.status == "BORDERLINE":
+            st.warning("Possible but competitive. Consider safer backups.")
+        elif result.status == "RISKY":
+            st.error("High risk. Apply only if you have safer alternatives.")
+        elif result.status == "NO_CUTOFF":
+            st.info("No cutoff data. Treat this as exploratory.")
+        elif result.status == "NOT_ELIGIBLE":
+            st.error("You do not meet minimum requirements.")
+
+    if allow_shortlist and not compact:
+        if is_shortlisted(result):
+            if st.button(
+                f"Remove from shortlist - {result.programme.code} - {result.programme.university}",
+                key=f"remove_{result_key(result)}",
+            ):
+                remove_from_shortlist(result)
+                st.rerun()
+        else:
+            if st.button(
+                f"Add to shortlist - {result.programme.code} - {result.programme.university}",
+                key=f"add_{result_key(result)}",
+            ):
+                add_to_shortlist(result)
+                st.rerun()
+
+
+def render_result_group(
+    title: str,
+    subtitle: str,
+    results,
+    limit: int | None = None,
+    allow_shortlist: bool = False,
+) -> None:
+    st.markdown(
+        f"""
+        <div class="section-card">
+            <h3 style="margin-bottom:0.25rem;">{title}</h3>
+            <div class="mini-note">{subtitle}</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    if not results:
+        st.info("No results found in this section.")
+        return
+
+    items = results[:limit] if limit else results
+    for result in items:
+        render_result_card(result, allow_shortlist=allow_shortlist)
+
+    if limit and len(results) > limit:
+        st.caption(f"Showing {limit} of {len(results)} results in this section.")
+
+
 def main() -> None:
     if "latest_results" not in st.session_state:
         st.session_state.latest_results = None
 
     if "latest_student" not in st.session_state:
         st.session_state.latest_student = None
+
+    if "shortlist" not in st.session_state:
+        st.session_state.shortlist = []
+
     st.markdown(
         """
         <div class="hero-card">
@@ -536,12 +583,13 @@ def main() -> None:
 
     st.session_state.latest_results = results
     st.session_state.latest_student = student
-    
+
     summary = results["summary"]
     top = results["top_recommendations"]
     alternatives = results["alternatives"]
     grouped = results["grouped"]
     all_results = results["all_results"]
+
     action_col1, action_col2 = st.columns(2)
 
     with action_col1:
@@ -557,6 +605,7 @@ def main() -> None:
         if st.button("Start New Analysis"):
             st.session_state.latest_results = None
             st.session_state.latest_student = None
+            st.session_state.shortlist = []
             st.rerun()
 
     st.markdown(
@@ -638,6 +687,7 @@ def main() -> None:
         "These are your strongest current options based on the engine.",
         top,
         limit=5,
+        allow_shortlist=True,
     )
 
     render_result_group(
@@ -645,6 +695,7 @@ def main() -> None:
         "These are useful backups in case your first choices are too competitive.",
         alternatives,
         limit=5,
+        allow_shortlist=True,
     )
 
     st.markdown(
@@ -655,6 +706,16 @@ def main() -> None:
         </div>
         """,
         unsafe_allow_html=True,
+    )
+
+    sort_option = st.selectbox(
+        "Sort results by",
+        [
+            "Best weight first",
+            "Programme name (A-Z)",
+            "University name (A-Z)",
+            "Status",
+        ],
     )
 
     selected_group = st.selectbox(
@@ -682,6 +743,32 @@ def main() -> None:
     else:
         chosen_results = all_results
 
+    status_order = {
+        "SAFE": 0,
+        "BORDERLINE": 1,
+        "RISKY": 2,
+        "NO_CUTOFF": 3,
+        "NOT_ELIGIBLE": 4,
+    }
+
+    if sort_option == "Best weight first":
+        chosen_results = sorted(chosen_results, key=lambda x: x.weight, reverse=True)
+    elif sort_option == "Programme name (A-Z)":
+        chosen_results = sorted(
+            chosen_results,
+            key=lambda x: x.programme.programme_name.lower(),
+        )
+    elif sort_option == "University name (A-Z)":
+        chosen_results = sorted(
+            chosen_results,
+            key=lambda x: x.programme.university.lower(),
+        )
+    elif sort_option == "Status":
+        chosen_results = sorted(
+            chosen_results,
+            key=lambda x: (status_order.get(x.status, 99), -x.weight),
+        )
+
     max_items = st.slider(
         "How many results to show",
         min_value=5,
@@ -692,7 +779,7 @@ def main() -> None:
 
     if chosen_results:
         for result in chosen_results[:max_items]:
-            render_result_card(result)
+            render_result_card(result, allow_shortlist=True)
     else:
         st.info("No results found in this group.")
 
@@ -711,6 +798,63 @@ def main() -> None:
                 render_result_card(result, compact=True)
         else:
             st.info("No borderline options found.")
+
+    st.markdown(
+        """
+        <div class="section-card">
+            <h3 style="margin-bottom:0.35rem;">Your shortlist</h3>
+            <div class="mini-note">Save promising options here and compare them more easily.</div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    shortlisted_results = [
+        result for result in all_results
+        if result_key(result) in st.session_state.shortlist
+    ]
+
+    if shortlisted_results:
+        st.write(f"You have {len(shortlisted_results)} programme(s) in your shortlist.")
+
+        for result in shortlisted_results:
+            render_result_card(result, allow_shortlist=True)
+
+        compare_options = [
+            f"{r.programme.programme_name} | {r.programme.university} | {r.programme.code}"
+            for r in shortlisted_results
+        ]
+
+        selected_compare = st.multiselect(
+            "Select up to 3 programmes to compare",
+            compare_options,
+            max_selections=3,
+        )
+
+        selected_compare_results = [
+            r for r in shortlisted_results
+            if f"{r.programme.programme_name} | {r.programme.university} | {r.programme.code}" in selected_compare
+        ]
+
+        if selected_compare_results:
+            compare_rows = []
+            for result in selected_compare_results:
+                compare_rows.append(
+                    {
+                        "Programme": result.programme.programme_name,
+                        "University": result.programme.university,
+                        "Code": result.programme.code,
+                        "Status": result.status,
+                        "Weight": result.weight,
+                        "Best Scheme": result.best_scheme or "-",
+                        "Eligible": "Yes" if result.eligible else "No",
+                    }
+                )
+
+            st.markdown("### Comparison table")
+            st.table(compare_rows)
+    else:
+        st.info("Your shortlist is empty. Add programmes from the results above.")
 
     integrity_report = results.get("integrity_report") or {}
     problem_count = sum(len(v) for v in integrity_report.values())
