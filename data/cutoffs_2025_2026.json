@@ -1,0 +1,84 @@
+[
+  {
+    "university": "Makerere University",
+    "code": "CIV",
+    "academic_year": "2025/2026",
+    "cutoff_type": "gender_split",
+    "female": 47.8,
+    "male": 49.2
+  },
+  {
+    "university": "Makerere University",
+    "code": "BBA",
+    "academic_year": "2025/2026",
+    "cutoff_type": "gender_split",
+    "female": 42.6,
+    "male": 44.2
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "BNS",
+    "academic_year": "2025/2026",
+    "cutoff_type": "gender_split",
+    "female": 46.5,
+    "male": 47.8
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BED",
+    "academic_year": "2025/2026",
+    "cutoff_type": "single",
+    "value": 39.5
+  },
+  {
+    "university": "Busitema University",
+    "code": "CIV",
+    "academic_year": "2025/2026",
+    "cutoff_type": "gender_split",
+    "female": 45.2,
+    "male": 46.8
+  },
+  {
+    "university": "Gulu University",
+    "code": "BBA",
+    "academic_year": "2025/2026",
+    "cutoff_type": "single",
+    "value": 40.3
+  },
+  {
+    "university": "Kabale University",
+    "code": "CIV",
+    "academic_year": "2025/2026",
+    "cutoff_type": "single",
+    "value": 52.5
+  },
+  {
+    "university": "Lira University",
+    "code": "BNS",
+    "academic_year": "2025/2026",
+    "cutoff_type": "single",
+    "value": 44.7
+  },
+  {
+    "university": "Soroti University",
+    "code": "BNS",
+    "academic_year": "2025/2026",
+    "cutoff_type": "gender_split",
+    "female": 45.9,
+    "male": 47.1
+  },
+  {
+    "university": "Muni University",
+    "code": "BED",
+    "academic_year": "2025/2026",
+    "cutoff_type": "single",
+    "value": 38.2
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "BBA",
+    "academic_year": "2025/2026",
+    "cutoff_type": "single",
+    "value": 37.5
+  }
+]
