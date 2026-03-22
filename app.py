@@ -247,7 +247,9 @@ def card_css(status: str) -> str:
 def render_scheme_badges(schemes) -> str:
     if not schemes:
         return ""
-    return " ".join([f'<span class="scheme-badge">{scheme}</span>' for scheme in schemes])
+    return " ".join(
+        [f'<span class="scheme-badge">{scheme}</span>' for scheme in schemes]
+    )
 
 
 def render_metric_box(label: str, value) -> None:
@@ -307,11 +309,27 @@ def render_result_card(result, compact: bool = False) -> None:
         unsafe_allow_html=True,
     )
 
-    with st.expander("See explanation"):
+    with st.expander("Why this recommendation?"):
         st.write(result.reason or "No explanation available.")
 
+        if result.status == "SAFE":
+            st.success("Strong option. Prioritize this in your applications.")
+        elif result.status == "BORDERLINE":
+            st.warning("Possible but competitive. Consider safer backups.")
+        elif result.status == "RISKY":
+            st.error("High risk. Apply only if you have safer alternatives.")
+        elif result.status == "NO_CUTOFF":
+            st.info("No cutoff data. Treat this as exploratory.")
+        elif result.status == "NOT_ELIGIBLE":
+            st.error("You do not meet minimum requirements.")
 
-def render_result_group(title: str, subtitle: str, results, limit: int | None = None):
+
+def render_result_group(
+    title: str,
+    subtitle: str,
+    results,
+    limit: int | None = None,
+) -> None:
     st.markdown(
         f"""
         <div class="section-card">
@@ -370,7 +388,10 @@ def main() -> None:
         with col2:
             citizenship = st.selectbox("Citizenship", ["Ugandan", "Non-Ugandan"])
 
-        district = st.text_input("Home District", placeholder="Optional, useful for District Quota")
+        district = st.text_input(
+            "Home District",
+            placeholder="Optional, useful for District Quota",
+        )
 
         st.markdown("### A-Level subjects")
         s1_col, g1_col = st.columns([2, 1])
@@ -386,7 +407,9 @@ def main() -> None:
         with g2_col:
             grade_2 = st.selectbox("Grade 2", GRADE_OPTIONS, key="grade_2")
 
-        subject_3_options = [s for s in SUBJECT_OPTIONS if s not in {subject_1, subject_2}]
+        subject_3_options = [
+            s for s in SUBJECT_OPTIONS if s not in {subject_1, subject_2}
+        ]
         s3_col, g3_col = st.columns([2, 1])
         with s3_col:
             subject_3 = st.selectbox("Subject 3", subject_3_options, key="subject_3")
@@ -403,11 +426,26 @@ def main() -> None:
         st.markdown("### O-Level summary")
         o1, o2, o3 = st.columns(3)
         with o1:
-            distinctions = st.number_input("Distinctions", min_value=0, max_value=12, value=0)
+            distinctions = st.number_input(
+                "Distinctions",
+                min_value=0,
+                max_value=12,
+                value=0,
+            )
         with o2:
-            credits = st.number_input("Credits", min_value=0, max_value=12, value=0)
+            credits = st.number_input(
+                "Credits",
+                min_value=0,
+                max_value=12,
+                value=0,
+            )
         with o3:
-            passes = st.number_input("Passes", min_value=0, max_value=12, value=0)
+            passes = st.number_input(
+                "Passes",
+                min_value=0,
+                max_value=12,
+                value=0,
+            )
 
         submitted = st.form_submit_button("Run Analysis")
 
@@ -472,13 +510,20 @@ def main() -> None:
     with m4:
         render_metric_box("Total", summary["total"])
 
-    highlight_message = None
     if summary["safe"] > 0:
-        highlight_message = f"You currently have {summary['safe']} safe option(s). Focus on these first."
+        highlight_message = (
+            f"You currently have {summary['safe']} safe option(s). Focus on these first."
+        )
     elif summary["borderline"] > 0:
-        highlight_message = f"You have {summary['borderline']} borderline option(s). You should balance ambition with safer backups."
+        highlight_message = (
+            f"You have {summary['borderline']} borderline option(s). "
+            "You should balance ambition with safer backups."
+        )
     else:
-        highlight_message = "Your current profile looks competitive mainly in risky or no-cutoff categories. Backup choices will matter a lot."
+        highlight_message = (
+            "Your current profile looks competitive mainly in risky or no-cutoff "
+            "categories. Backup choices will matter a lot."
+        )
 
     st.markdown(
         f"""
@@ -488,6 +533,36 @@ def main() -> None:
         """,
         unsafe_allow_html=True,
     )
+
+    st.markdown(
+        """
+        <div class="section-card">
+            <h3 style="margin-bottom:0.35rem;">Recommended application strategy</h3>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    if summary["safe"] >= 3:
+        st.success("Apply to at least 2–3 SAFE programmes as your main choices.")
+    elif summary["safe"] > 0:
+        st.warning("You have limited safe options. Combine SAFE + BORDERLINE wisely.")
+    elif summary["borderline"] > 0:
+        st.warning("Focus on BORDERLINE options but include less competitive backups.")
+    else:
+        st.error("Prioritize less competitive programmes and diploma options.")
+
+    if top:
+        best = top[0]
+        st.markdown(
+            f"""
+            <div class="highlight-strip">
+                <strong>Top match:</strong> {best.programme.programme_name} at {best.programme.university}
+                <br/>Status: <strong>{best.status}</strong> | Weight: <strong>{best.weight}</strong>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
 
     render_result_group(
         "Top recommendations",
@@ -538,7 +613,13 @@ def main() -> None:
     else:
         chosen_results = all_results
 
-    max_items = st.slider("How many results to show", min_value=5, max_value=50, value=12, step=1)
+    max_items = st.slider(
+        "How many results to show",
+        min_value=5,
+        max_value=50,
+        value=12,
+        step=1,
+    )
 
     if chosen_results:
         for result in chosen_results[:max_items]:
