@@ -5,39 +5,119 @@
     "code": "CIV",
     "duration": 4,
     "schemes": ["GS", "PS"],
-
     "essential": {
       "type": "fixed",
       "subjects": ["Mathematics", "Physics"],
       "count": 2,
       "weight": 3
     },
-
     "relevant": {
       "type": "best_of",
-      "subjects": [
-        "Chemistry",
-        "Economics",
-        "Geography",
-        "Entrepreneurship"
-      ],
+      "subjects": ["Chemistry", "Economics", "Geography", "Entrepreneurship"],
       "count": 1,
       "weight": 2
     },
-
     "desirable": {
       "type": "optional",
       "subjects": ["General Paper", "Computer Studies"],
       "count": 2,
       "weight": 1
     },
-
     "cutoffs": {
       "GS": 49.3,
-      "DQ": 46.2,
       "PS": null
     },
-
     "notes": "Requires strong mathematics and physics background"
+  },
+  {
+    "university": "Makerere University",
+    "programme_name": "Bachelor of Business Administration",
+    "code": "BBA",
+    "duration": 3,
+    "schemes": ["GS", "PS"],
+    "essential": {
+      "type": "fixed",
+      "subjects": ["Economics"],
+      "count": 1,
+      "weight": 3
+    },
+    "relevant": {
+      "type": "best_of",
+      "subjects": ["Mathematics", "Entrepreneurship", "Geography", "History", "Physics"],
+      "count": 2,
+      "weight": 2
+    },
+    "desirable": {
+      "type": "optional",
+      "subjects": ["General Paper", "Sub-Mathematics", "Computer Studies"],
+      "count": 2,
+      "weight": 1
+    },
+    "cutoffs": {
+      "GS": 44.2,
+      "PS": null
+    },
+    "notes": "Economics is central for this programme"
+  },
+  {
+    "university": "Kyambogo University",
+    "programme_name": "Bachelor of Education",
+    "code": "BED",
+    "duration": 3,
+    "schemes": ["GS", "DQ", "PS"],
+    "essential": {
+      "type": "best_of",
+      "subjects": ["History", "Geography", "Economics", "Mathematics", "Physics", "Biology", "Literature"],
+      "count": 2,
+      "weight": 3
+    },
+    "relevant": {
+      "type": "remaining_best",
+      "subjects": [],
+      "count": 1,
+      "weight": 2
+    },
+    "desirable": {
+      "type": "optional",
+      "subjects": ["General Paper"],
+      "count": 1,
+      "weight": 1
+    },
+    "cutoffs": {
+      "GS": 39.5,
+      "DQ": 36.2,
+      "PS": null
+    },
+    "notes": "Teaching-oriented programme with broad subject acceptance"
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "programme_name": "Bachelor of Nursing Science",
+    "code": "BNS",
+    "duration": 4,
+    "schemes": ["GS", "PS"],
+    "essential": {
+      "type": "fixed",
+      "subjects": ["Biology", "Chemistry"],
+      "count": 2,
+      "weight": 3
+    },
+    "relevant": {
+      "type": "best_of",
+      "subjects": ["Physics", "Mathematics"],
+      "count": 1,
+      "weight": 2
+    },
+    "desirable": {
+      "type": "optional",
+      "subjects": ["General Paper"],
+      "count": 1,
+      "weight": 1
+    },
+    "cutoffs": {
+      "GS": 47.8,
+      "PS": null
+    },
+    "notes": "Health sciences programme"
   }
 ]
