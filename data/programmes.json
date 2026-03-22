@@ -1,123 +1,3770 @@
 [
   {
-    "university": "Makerere University",
-    "programme_name": "BSc Civil Engineering",
-    "code": "CIV",
-    "duration": 4,
-    "schemes": ["GS", "PS"],
-    "essential": {
-      "type": "fixed",
-      "subjects": ["Mathematics", "Physics"],
-      "count": 2,
-      "weight": 3
-    },
-    "relevant": {
-      "type": "best_of",
-      "subjects": ["Chemistry", "Economics", "Geography", "Entrepreneurship"],
-      "count": 1,
-      "weight": 2
-    },
-    "desirable": {
-      "type": "optional",
-      "subjects": ["General Paper", "Computer Studies"],
-      "count": 2,
-      "weight": 1
-    },
-    "cutoffs": {
-      "GS": 49.3,
-      "PS": null
-    },
-    "notes": "Requires strong mathematics and physics background"
+    "university": "Busitema University",
+    "code": "AMI",
+    "programme_name": "Bachelor of Agricultural Mechanization and Irrigation Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
   },
   {
-    "university": "Makerere University",
+    "university": "Busitema University",
+    "code": "APM",
+    "programme_name": "Bachelor of Animal Production and Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "MED",
+    "programme_name": "Bachelor of Medicine & Bachelor of Surgery",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "SCE",
+    "programme_name": "Bachelor of Science Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "EEB",
+    "programme_name": "Bachelor of Science Electrical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "SAB",
+    "programme_name": "Bachelor of Science in Agriculture",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "APE",
+    "programme_name": "Bachelor of Science in Agro-Processing Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "BNA",
+    "programme_name": "Bachelor of Science in Anaesthesia",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "BCT",
+    "programme_name": "Bachelor of Science in Computer Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "SCS",
+    "programme_name": "Bachelor of Science in Computer Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "FWR",
+    "programme_name": "Bachelor of Science in Fisheries & Water Resource Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "MEB",
+    "programme_name": "Bachelor of Science in Mining Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "NRE",
+    "programme_name": "Bachelor of Science in Natural Resource Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "BNS",
+    "programme_name": "Bachelor of Science in Nursing",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "TEB",
+    "programme_name": "Bachelor of Science in Polymer, Textile and Industrial Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "WAR",
+    "programme_name": "Bachelor of Science in Water Resources Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "BTR",
+    "programme_name": "Bachelor of Tourism and Travel Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "DAG",
+    "programme_name": "Diploma in Agricultural Engineering",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Busitema University",
+    "code": "DGI",
+    "programme_name": "Diploma in Ginning and Industrial Engineering",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Gulu University",
+    "code": "GEA",
+    "programme_name": "Bachelor of Arts with Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Gulu University",
+    "code": "BBG",
     "programme_name": "Bachelor of Business Administration",
-    "code": "BBA",
-    "duration": 3,
-    "schemes": ["GS", "PS"],
-    "essential": {
-      "type": "fixed",
-      "subjects": ["Economics"],
-      "count": 1,
-      "weight": 3
-    },
-    "relevant": {
-      "type": "best_of",
-      "subjects": ["Mathematics", "Entrepreneurship", "Geography", "History", "Physics"],
-      "count": 2,
-      "weight": 2
-    },
-    "desirable": {
-      "type": "optional",
-      "subjects": ["General Paper", "Sub-Mathematics", "Computer Studies"],
-      "count": 2,
-      "weight": 1
-    },
-    "cutoffs": {
-      "GS": 44.2,
-      "PS": null
-    },
-    "notes": "Economics is central for this programme"
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GBD",
+    "programme_name": "Bachelor of Business Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Gulu University",
+    "code": "GDM",
+    "programme_name": "Bachelor of Development Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GIM",
+    "programme_name": "Bachelor of Information and Communications Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GUM",
+    "programme_name": "Bachelor of Medicine and Bachelor of Surgery",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GPM",
+    "programme_name": "Bachelor of Public Administration and Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Gulu University",
+    "code": "GQE",
+    "programme_name": "Bachelor of Quantitative Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "SEA",
+    "programme_name": "Bachelor of Science Education (Agriculture)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Gulu University",
+    "code": "GBE",
+    "programme_name": "Bachelor of Science Education (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "SEG",
+    "programme_name": "Bachelor of Science Education (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GSS",
+    "programme_name": "Bachelor of Science Education (Sport & Exercise Science)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GUA",
+    "programme_name": "Bachelor of Science in Agriculture",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GSB",
+    "programme_name": "Bachelor of Science in Biosystems Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GCS",
+    "programme_name": "Bachelor of Science in Computer Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GFA",
+    "programme_name": "Bachelor of Science in Food Bioscience & Agribusiness",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Gulu University",
+    "code": "GME",
+    "programme_name": "Bachelor of Science with Education (Mathematics & Economics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KAF",
+    "programme_name": "Bachelor of Accounting and Finance",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KAM",
+    "programme_name": "Bachelor of Agribusiness Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KAL",
+    "programme_name": "Bachelor of Agriculture and Land Use Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KAN",
+    "programme_name": "Bachelor of Anaesthesia and Critical Care Medicine",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KDA",
+    "programme_name": "Bachelor of Applied Design and Fine Art",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KEC",
+    "programme_name": "Bachelor of Arts in Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KED",
+    "programme_name": "Bachelor of Arts with Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KPA",
+    "programme_name": "Bachelor of Business Administration",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KCH",
+    "programme_name": "Bachelor of Catering and Hospitality",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KCE",
+    "programme_name": "Bachelor of Civil Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KCS",
+    "programme_name": "Bachelor of Computer Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KCP",
+    "programme_name": "Bachelor of Creative and Performing Arts",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KEE",
+    "programme_name": "Bachelor of Electrical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KHS",
+    "programme_name": "Bachelor of Environmental Health Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KES",
+    "programme_name": "Bachelor of Environmental Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KHR",
+    "programme_name": "Bachelor of Human Resource Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KIT",
+    "programme_name": "Bachelor of Information Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KMC",
+    "programme_name": "Bachelor of Journalism and Mass Communication",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KBL",
+    "programme_name": "Bachelor of Laws",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KLS",
+    "programme_name": "Bachelor of Library and Information Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KME",
+    "programme_name": "Bachelor of Mechanical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KMS",
+    "programme_name": "Bachelor of Medicine and Bachelor of Surgery",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KNS",
+    "programme_name": "Bachelor of Nursing Science",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KPL",
+    "programme_name": "Bachelor of Procurement and Logistics Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KPA",
+    "programme_name": "Bachelor of Public Administration and Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KRM",
+    "programme_name": "Bachelor of Records and Information Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KSA",
+    "programme_name": "Bachelor of Science in Agriculture",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KIB",
+    "programme_name": "Bachelor of Science in Biotechnology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KIC",
+    "programme_name": "Bachelor of Science in Industrial Chemistry",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KIP",
+    "programme_name": "Bachelor of Science in Industrial and Applied Physics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KQE",
+    "programme_name": "Bachelor of Science in Quantitative Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KSD",
+    "programme_name": "Bachelor of Science in Statistics and Data Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KEB",
+    "programme_name": "Bachelor of Science with Education (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KSE",
+    "programme_name": "Bachelor of Science with Education (Economics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KEP",
+    "programme_name": "Bachelor of Science with Education (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kabale University",
+    "code": "KSS",
+    "programme_name": "Bachelor of Social Sciences",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KSW",
+    "programme_name": "Bachelor of Social Work",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kabale University",
+    "code": "KTH",
+    "programme_name": "Bachelor of Tourism Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
   },
   {
     "university": "Kyambogo University",
-    "programme_name": "Bachelor of Education",
-    "code": "BED",
-    "duration": 3,
-    "schemes": ["GS", "DQ", "PS"],
-    "essential": {
-      "type": "best_of",
-      "subjects": ["History", "Geography", "Economics", "Mathematics", "Physics", "Biology", "Literature"],
-      "count": 2,
-      "weight": 3
-    },
-    "relevant": {
-      "type": "remaining_best",
-      "subjects": [],
-      "count": 1,
-      "weight": 2
-    },
-    "desirable": {
-      "type": "optional",
-      "subjects": ["General Paper"],
-      "count": 1,
-      "weight": 1
-    },
-    "cutoffs": {
-      "GS": 39.5,
-      "DQ": 36.2,
-      "PS": null
-    },
-    "notes": "Teaching-oriented programme with broad subject acceptance"
+    "code": "CGD",
+    "programme_name": "Bachelor Computer Graphic Design",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BAS",
+    "programme_name": "Bachelor of Administrative Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ACD",
+    "programme_name": "Bachelor of Adult and Community Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "AHD",
+    "programme_name": "Bachelor of Archaeology & Heritage Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ARD",
+    "programme_name": "Bachelor of Architecture",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "AID",
+    "programme_name": "Bachelor of Art and Industrial Design",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "AAD",
+    "programme_name": "Bachelor of Arts (Arts)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "EKD",
+    "programme_name": "Bachelor of Arts in Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "SDD",
+    "programme_name": "Bachelor of Arts in Security & Diplomatic Studies",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "SSD",
+    "programme_name": "Bachelor of Arts in Social Sciences",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "AED",
+    "programme_name": "Bachelor of Arts with Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BBK",
+    "programme_name": "Bachelor of Business Administration",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BSD",
+    "programme_name": "Bachelor of Business Studies with Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "CBD",
+    "programme_name": "Bachelor of Community Based Rehabilitation",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "CSD",
+    "programme_name": "Bachelor of Community Development and Social Justice",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "HCD",
+    "programme_name": "Bachelor of Cultural Heritage Studies",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BRD",
+    "programme_name": "Bachelor of Demography and Reproductive Health",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BDD",
+    "programme_name": "Bachelor of Development Studies",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BEK",
+    "programme_name": "Bachelor of Economics and Statistics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "VHD",
+    "programme_name": "Bachelor of Education in Vocational Studies (Home Economics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BEL",
+    "programme_name": "Bachelor of Electrical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "APD",
+    "programme_name": "Bachelor of Engineering in Automotive & Power Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ECD",
+    "programme_name": "Bachelor of Engineering in Civil and Building Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "EED",
+    "programme_name": "Bachelor of Engineering in Environmental Engineering & Management",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "EMD",
+    "programme_name": "Bachelor of Engineering in Mechanical and Manufacturing Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ETD",
+    "programme_name": "Bachelor of Engineering in Telecommunication Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BMD",
+    "programme_name": "Bachelor of Environment Science Technology & Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "FCD",
+    "programme_name": "Bachelor of Fashion and Cosmetology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "FPD",
+    "programme_name": "Bachelor of Food Science and Processing Technology",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BGD",
+    "programme_name": "Bachelor of Guidance and Counselling",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "HID",
+    "programme_name": "Bachelor of Hotel and Institutional Catering",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "IED",
+    "programme_name": "Bachelor of Industrial Engineering and Management",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ISD",
+    "programme_name": "Bachelor of Information Systems",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ITD",
+    "programme_name": "Bachelor of Information Technology and Computing",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BIL",
+    "programme_name": "Bachelor of Interior & Landscape Design",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "LID",
+    "programme_name": "Bachelor of Library & Information Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "MSD",
+    "programme_name": "Bachelor of Management Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "MCD",
+    "programme_name": "Bachelor of Material & Ceramic Science Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BIO",
+    "programme_name": "Bachelor of Mechatronics and Bio-Medical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "MFD",
+    "programme_name": "Bachelor of Microfinance",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BPD",
+    "programme_name": "Bachelor of Performing Arts",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "PLD",
+    "programme_name": "Bachelor of Procurement and Logistics Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "PAD",
+    "programme_name": "Bachelor of Public Administration & Resource Governance",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BTD",
+    "programme_name": "Bachelor of Science Technology (Biology)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "CTD",
+    "programme_name": "Bachelor of Science Technology (Chemistry)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "PTD",
+    "programme_name": "Bachelor of Science Technology (Physics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "AFD",
+    "programme_name": "Bachelor of Science in Accounting and Finance",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "EBD",
+    "programme_name": "Bachelor of Science in Building Economics",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "CPD",
+    "programme_name": "Bachelor of Science in Chemical and Process Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "HND",
+    "programme_name": "Bachelor of Science in Human Nutrition and Dietetics",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "BLD",
+    "programme_name": "Bachelor of Science in Land Economics",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "LTD",
+    "programme_name": "Bachelor of Science in Leather Tanning Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "GPD",
+    "programme_name": "Bachelor of Science in Oil & Gas Production",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "SAD",
+    "programme_name": "Bachelor of Science in Sports & Exercise Instruction",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "LMD",
+    "programme_name": "Bachelor of Science in Sports and Leisure Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "STD",
+    "programme_name": "Bachelor of Science in Statistics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "SLD",
+    "programme_name": "Bachelor of Science in Surveying and Land Information Systems",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "TCD",
+    "programme_name": "Bachelor of Science in Textile and Clothing Technology",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ESB",
+    "programme_name": "Bachelor of Science with Education (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ESE",
+    "programme_name": "Bachelor of Science with Education (Economics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "ESP",
+    "programme_name": "Bachelor of Science with Education (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "SWD",
+    "programme_name": "Bachelor of Social Work and Social Administration",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "TAD",
+    "programme_name": "Bachelor of Textile & Apparel Design",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "AGD",
+    "programme_name": "Bachelor of Vocational Studies in Agriculture with Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "VAD",
+    "programme_name": "Bachelor of Vocational Studies in Arts and Design with Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "VTD",
+    "programme_name": "Bachelor of Vocational Studies in Technological Studies with Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "DBE",
+    "programme_name": "Diploma in Biomedical Engineering",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "CBR",
+    "programme_name": "Diploma in Community Based Rehabilitation",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "DCE",
+    "programme_name": "Diploma in Computer Engineering",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "FAD",
+    "programme_name": "Diploma in Fashion and Apparel Design",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "DFP",
+    "programme_name": "Diploma in Food Processing Technology",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "DHC",
+    "programme_name": "Diploma in Hotel and Institutional Catering",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "DID",
+    "programme_name": "Diploma in Interior Design",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "MBR",
+    "programme_name": "Diploma in Mobility & Rehabilitation",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "DRA",
+    "programme_name": "Diploma in Refrigeration & Air Conditioning",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "STB",
+    "programme_name": "Diploma in Science Technology (Biology)",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "STC",
+    "programme_name": "Diploma in Science Technology (Chemistry)",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "STP",
+    "programme_name": "Diploma in Science Technology (Physics)",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "SLI",
+    "programme_name": "Diploma in Sign Language Interpreting",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "TEX",
+    "programme_name": "Diploma in Textile and Surface Design",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Kyambogo University",
+    "code": "DWE",
+    "programme_name": "Diploma in Water Engineering",
+    "duration_years": 2,
+    "level": "diploma",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LBA",
+    "programme_name": "Bachelor of Business Administration",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LCM",
+    "programme_name": "Bachelor of Commerce",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LMS",
+    "programme_name": "Bachelor of Medicine and Bachelor of Surgery",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LSM",
+    "programme_name": "Bachelor of Midwifery Science",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LAF",
+    "programme_name": "Bachelor of Science in Accounting and Finance",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LCP",
+    "programme_name": "Bachelor of Science in Community Psychology and Psychotherapy",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LSC",
+    "programme_name": "Bachelor of Science in Computer Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LES",
+    "programme_name": "Bachelor of Science in Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LSP",
+    "programme_name": "Bachelor of Science in Public Health",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LEA",
+    "programme_name": "Bachelor of Science with Education (Agriculture)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LEB",
+    "programme_name": "Bachelor of Science with Education (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LEE",
+    "programme_name": "Bachelor of Science with Education (Economics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Lira University",
+    "code": "LEP",
+    "programme_name": "Bachelor of Science with Education (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "BAC",
+    "programme_name": "B. Adult and Community Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "AGM",
+    "programme_name": "Bachelor of Agribusiness Management",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BAI",
+    "programme_name": "Bachelor of Agricultural Extension and Rural Innovation",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BAP",
+    "programme_name": "Bachelor of Animal Production Technology & Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "APS",
+    "programme_name": "Bachelor of Applied Psychology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "ARC",
+    "programme_name": "Bachelor of Architecture",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "ARS",
+    "programme_name": "Bachelor of Arts (Arts)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "ASS",
+    "programme_name": "Bachelor of Arts (Social Sciences)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "ECO",
+    "programme_name": "Bachelor of Arts in Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "MUS",
+    "programme_name": "Bachelor of Arts in Music",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "EDA",
+    "programme_name": "Bachelor of Arts with Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "MLT",
+    "programme_name": "Bachelor of Biomedical Laboratory Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "ADM",
+    "programme_name": "Bachelor of Business Administration",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BBD",
+    "programme_name": "Bachelor of Business Administration (MUBS)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BBC",
+    "programme_name": "Bachelor of Business Computing",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "COE",
+    "programme_name": "Bachelor of Commerce",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "COM",
+    "programme_name": "Bachelor of Commerce (MUBS)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BYT",
+    "programme_name": "Bachelor of Cytotechnology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BDS",
+    "programme_name": "Bachelor of Dental Surgery",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BEY",
+    "programme_name": "Bachelor of Early Childhood Care and Education",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "BEN",
+    "programme_name": "Bachelor of Entrepreneurship",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BEH",
+    "programme_name": "Bachelor of Environmental Health Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BEV",
+    "programme_name": "Bachelor of Environmental Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "BFA",
+    "programme_name": "Bachelor of Fine Art",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BGS",
+    "programme_name": "Bachelor of Geographical Sciences",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BHM",
+    "programme_name": "Bachelor of Human Resource Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "BID",
+    "programme_name": "Bachelor of Industrial Art and Applied Design",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "IST",
+    "programme_name": "Bachelor of Information Systems and Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BIB",
+    "programme_name": "Bachelor of International Business",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BJC",
+    "programme_name": "Bachelor of Journalism and Communication",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "BSL",
+    "programme_name": "Bachelor of Language and Speech Therapy",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "LAW",
+    "programme_name": "Bachelor of Laws",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BLM",
+    "programme_name": "Bachelor of Leisure Events & Hotel Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "LIS",
+    "programme_name": "Bachelor of Library and Information Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "MAM",
+    "programme_name": "Bachelor of Medicine and Bachelor Surgery",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "NUR",
+    "programme_name": "Bachelor of Nursing Science",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BIM",
+    "programme_name": "Bachelor of Office and Information Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BPT",
+    "programme_name": "Bachelor of Optometry",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "PHA",
+    "programme_name": "Bachelor of Pharmacy",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "PSM",
+    "programme_name": "Bachelor of Procurement and Supply Chain Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "SCB",
+    "programme_name": "Bachelor of Science (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "SEC",
+    "programme_name": "Bachelor of Science (Economics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "SCP",
+    "programme_name": "Bachelor of Science (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "SAS",
+    "programme_name": "Bachelor of Science in Actuarial Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "AGE",
+    "programme_name": "Bachelor of Science in Agricultural Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "AGR",
+    "programme_name": "Bachelor of Science in Agriculture",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BBP",
+    "programme_name": "Bachelor of Science in Bio-processing Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BBI",
+    "programme_name": "Bachelor of Science in Biomedical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BOS",
+    "programme_name": "Bachelor of Science in Biomedical Sciences",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "BBT",
+    "programme_name": "Bachelor of Science in Biotechnology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "CIV",
+    "programme_name": "Bachelor of Science in Civil Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "CCE",
+    "programme_name": "Bachelor of Science in Computer & Communications Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "CSC",
+    "programme_name": "Bachelor of Science in Computer Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BCB",
+    "programme_name": "Bachelor of Science in Conservation Biology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "ELE",
+    "programme_name": "Bachelor of Science in Electrical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BFS",
+    "programme_name": "Bachelor of Science in Fisheries and Aquaculture",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "FST",
+    "programme_name": "Bachelor of Science in Food Science and Technology",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BOF",
+    "programme_name": "Bachelor of Science in Forestry",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BHD",
+    "programme_name": "Bachelor of Science in Human Nutrition and Dietetics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BIC",
+    "programme_name": "Bachelor of Science in Industrial Chemistry",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "LSG",
+    "programme_name": "Bachelor of Science in Land Surveying and Geomatics",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "MEC",
+    "programme_name": "Bachelor of Science in Mechanical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BMR",
+    "programme_name": "Bachelor of Science in Medical Radiography",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BPG",
+    "programme_name": "Bachelor of Science in Petroleum Geoscience and Production",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BPS",
+    "programme_name": "Bachelor of Science in Population Studies",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BQE",
+    "programme_name": "Bachelor of Science in Quantitative Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "SQS",
+    "programme_name": "Bachelor of Science in Quantity Surveying",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BSW",
+    "programme_name": "Bachelor of Science in Software Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BVL",
+    "programme_name": "Bachelor of Science in Valuation",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BWE",
+    "programme_name": "Bachelor of Science in Water and Irrigation Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "EDB",
+    "programme_name": "Bachelor of Science with Education (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "EEC",
+    "programme_name": "Bachelor of Science with Education (Economics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "EDP",
+    "programme_name": "Bachelor of Science with Education (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "SOW",
+    "programme_name": "Bachelor of Social Work",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "SPS",
+    "programme_name": "Bachelor of Sports Science (Exercise Science)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "SSM",
+    "programme_name": "Bachelor of Sports Science (Sports Management)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "STA",
+    "programme_name": "Bachelor of Statistics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BTH",
+    "programme_name": "Bachelor of Tourism and Hospitality Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BUP",
+    "programme_name": "Bachelor of Urban and Regional Planning",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Makerere University",
+    "code": "VET",
+    "programme_name": "Bachelor of Veterinary Medicine",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Makerere University",
+    "code": "BVC",
+    "programme_name": "Bachelor of Visual Communication, Design and Multimedia",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
   },
   {
     "university": "Mbarara University of Science and Technology",
+    "code": "BME",
+    "programme_name": "Bachelor of Biomedical Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "MBB",
+    "programme_name": "Bachelor of Business Administration",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "EEE",
+    "programme_name": "Bachelor of Engineering in Electrical and Electronics Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "MII",
+    "programme_name": "Bachelor of Information Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "MLS",
+    "programme_name": "Bachelor of Medical Laboratory Science",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "MBM",
+    "programme_name": "Bachelor of Medicine and Bachelor of Surgery",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "NUM",
     "programme_name": "Bachelor of Nursing Science",
-    "code": "BNS",
-    "duration": 4,
-    "schemes": ["GS", "PS"],
-    "essential": {
-      "type": "fixed",
-      "subjects": ["Biology", "Chemistry"],
-      "count": 2,
-      "weight": 3
-    },
-    "relevant": {
-      "type": "best_of",
-      "subjects": ["Physics", "Mathematics"],
-      "count": 1,
-      "weight": 2
-    },
-    "desirable": {
-      "type": "optional",
-      "subjects": ["General Paper"],
-      "count": 1,
-      "weight": 1
-    },
-    "cutoffs": {
-      "GS": 47.8,
-      "PS": null
-    },
-    "notes": "Health sciences programme"
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "PHM",
+    "programme_name": "Bachelor of Pharmacy",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "BCS",
+    "programme_name": "Bachelor of Science Computer Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "SEB",
+    "programme_name": "Bachelor of Science Education (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "SEP",
+    "programme_name": "Bachelor of Science Education (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "BAF",
+    "programme_name": "Bachelor of Science in Accounting and Finance",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "BAL",
+    "programme_name": "Bachelor of Science in Agriculture and Livelihoods",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "CVE",
+    "programme_name": "Bachelor of Science in Civil Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": null,
+    "programme_name": "Bachelor of Science in Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": null,
+    "programme_name": "Bachelor of Science in Gender & Applied Women Health",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "MIE",
+    "programme_name": "Bachelor of Science in Mechanical and Industrial Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": null,
+    "programme_name": "Bachelor of Science in Petroleum Engineering & Environmental Management",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": null,
+    "programme_name": "Bachelor of Science in Pharmaceutical Sciences",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "BPY",
+    "programme_name": "Bachelor of Science in Physiotherapy",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": null,
+    "programme_name": "Bachelor of Science in Planning & Community Development",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": null,
+    "programme_name": "Bachelor of Science in Procurement & Supply Chain Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mbarara University of Science and Technology",
+    "code": "BSE",
+    "programme_name": "Bachelor of Science in Software Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMS",
+    "programme_name": "Bachelor of Environmental Health Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMI",
+    "programme_name": "Bachelor of Information Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMN",
+    "programme_name": "Bachelor of Nursing Science",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMA",
+    "programme_name": "Bachelor of Science in Agriculture",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMW",
+    "programme_name": "Bachelor of Science in Aquaculture and Water Resources Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMC",
+    "programme_name": "Bachelor of Science in Computer Science",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMH",
+    "programme_name": "Bachelor of Science in Public Health",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMP",
+    "programme_name": "Bachelor of Science with Education (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Mountains of the Moon University",
+    "code": "MMT",
+    "programme_name": "Bachelor of Tourism, Travel & Hospitality Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "ECM",
+    "programme_name": "Bachelor of Economics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "ISM",
+    "programme_name": "Bachelor of Information Systems",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "MIT",
+    "programme_name": "Bachelor of Information Technology",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "MLM",
+    "programme_name": "Bachelor of Medical Laboratory Sciences",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "NSM",
+    "programme_name": "Bachelor of Nursing Science",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "PCM",
+    "programme_name": "Bachelor of Procurement and Supply Chain Management",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "SBM",
+    "programme_name": "Bachelor of Science (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "SPM",
+    "programme_name": "Bachelor of Science (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "ASM",
+    "programme_name": "Bachelor of Science in Agriculture",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "ERM",
+    "programme_name": "Bachelor of Science in Environment and Natural Resources",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "STM",
+    "programme_name": "Bachelor of Science in Statistics",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "SMA",
+    "programme_name": "Bachelor of Science with Education (Agriculture)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "SMB",
+    "programme_name": "Bachelor of Science with Education (Biological)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "SMC",
+    "programme_name": "Bachelor of Science with Education (Computer Studies)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "SME",
+    "programme_name": "Bachelor of Science with Education (Economics)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "BPE",
+    "programme_name": "Bachelor of Science with Education (Physical Education)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Muni University",
+    "code": "SMP",
+    "programme_name": "Bachelor of Science with Education (Physical)",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": false
+  },
+  {
+    "university": "Soroti University",
+    "code": "ECS",
+    "programme_name": "Bachelor of Engineering in Electronics and Computer Engineering",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Soroti University",
+    "code": "SML",
+    "programme_name": "Bachelor of Medical Laboratory Sciences",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Soroti University",
+    "code": "SOM",
+    "programme_name": "Bachelor of Medicine and Bachelor of Surgery",
+    "duration_years": 5,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Soroti University",
+    "code": "SON",
+    "programme_name": "Bachelor of Nursing Science",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Soroti University",
+    "code": "SBP",
+    "programme_name": "Bachelor of Physiotherapy",
+    "duration_years": 4,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
+  },
+  {
+    "university": "Soroti University",
+    "code": "SFC",
+    "programme_name": "Bachelor of Science in Accounting Finance & Computing",
+    "duration_years": 3,
+    "level": "bachelor",
+    "schemes": [
+      "GS",
+      "DQ",
+      "PS"
+    ],
+    "has_cutoff_2025_2026": true
   }
 ]
