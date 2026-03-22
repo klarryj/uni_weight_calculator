@@ -1,4 +1,5 @@
 import streamlit as st
+import json
 
 from core.pipeline import run_full_analysis
 from core.student import build_student_profile, validate_student_profile
@@ -351,8 +352,57 @@ def render_result_group(
     if limit and len(results) > limit:
         st.caption(f"Showing {limit} of {len(results)} results in this section.")
 
+def serialize_result(result) -> dict:
+    return {
+        "university": result.programme.university,
+        "code": result.programme.code,
+        "programme_name": result.programme.programme_name,
+        "schemes": result.programme.schemes,
+        "weight": result.weight,
+        "eligible": result.eligible,
+        "status": result.status,
+        "best_scheme": result.best_scheme,
+        "reason": result.reason,
+    }
+
+
+def build_download_payload(student, results) -> dict:
+    return {
+        "student_profile": {
+            "gender": student.gender,
+            "citizenship": student.citizenship,
+            "district": student.district,
+            "general_paper": student.general_paper,
+            "sub_math_or_ict": student.sub_math_or_ict,
+            "alevel_subjects": [
+                {"subject": s.subject, "grade": s.grade}
+                for s in student.alevel_subjects
+            ],
+            "olevel": {
+                "distinctions": student.olevel.distinctions,
+                "credits": student.olevel.credits,
+                "passes": student.olevel.passes,
+            },
+        },
+        "summary": results["summary"],
+        "top_recommendations": [
+            serialize_result(r) for r in results["top_recommendations"]
+        ],
+        "alternatives": [
+            serialize_result(r) for r in results["alternatives"]
+        ],
+        "all_results": [
+            serialize_result(r) for r in results["all_results"]
+        ],
+        "integrity_report": results.get("integrity_report", {}),
+    }
 
 def main() -> None:
+    if "latest_results" not in st.session_state:
+        st.session_state.latest_results = None
+
+    if "latest_student" not in st.session_state:
+        st.session_state.latest_student = None
     st.markdown(
         """
         <div class="hero-card">
@@ -484,11 +534,30 @@ def main() -> None:
     with st.spinner("Analyzing your options..."):
         results = run_full_analysis(student)
 
+    st.session_state.latest_results = results
+    st.session_state.latest_student = student
+    
     summary = results["summary"]
     top = results["top_recommendations"]
     alternatives = results["alternatives"]
     grouped = results["grouped"]
     all_results = results["all_results"]
+    action_col1, action_col2 = st.columns(2)
+
+    with action_col1:
+        download_payload = build_download_payload(student, results)
+        st.download_button(
+            label="Download Results (JSON)",
+            data=json.dumps(download_payload, indent=2),
+            file_name="uni_compass_results.json",
+            mime="application/json",
+        )
+
+    with action_col2:
+        if st.button("Start New Analysis"):
+            st.session_state.latest_results = None
+            st.session_state.latest_student = None
+            st.rerun()
 
     st.markdown(
         """
