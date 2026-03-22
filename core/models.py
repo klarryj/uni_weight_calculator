@@ -1,5 +1,3 @@
-# core/models.py
-
 from dataclasses import dataclass
 from typing import List, Dict, Optional
 
@@ -30,7 +28,7 @@ class StudentProfile:
 
 @dataclass
 class RuleBlock:
-    type: str  # e.g. "fixed", "best_of", "and_or", "remaining_best"
+    type: str  # fixed, best_of, optional, remaining_best, and_or
     subjects: Optional[List[str]] = None
     count: Optional[int] = None
     weight: int = 0
@@ -42,19 +40,11 @@ class Programme:
     programme_name: str
     code: str
     duration: Optional[int]
-
-    # Scheme availability (DQ, GS, PS, etc.)
     schemes: List[str]
-
-    # Rule blocks
     essential: RuleBlock
     relevant: Optional[RuleBlock]
     desirable: Optional[RuleBlock]
-
-    # Cutoffs per scheme
     cutoffs: Dict[str, Optional[float]]
-
-    # Optional notes
     notes: Optional[str] = None
 
 
@@ -63,5 +53,8 @@ class ProgrammeResult:
     programme: Programme
     weight: float
     eligible: bool
-    status: str  # SAFE / BORDERLINE / RISKY / NOT_ELIGIBLE
+    status: str
+    best_scheme: Optional[str] = None
+    scheme_statuses: Optional[Dict[str, str]] = None
+    matched_subjects: Optional[Dict[str, List[str]]] = None
     reason: Optional[str] = None
