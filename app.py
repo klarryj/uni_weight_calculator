@@ -139,33 +139,27 @@ def main() -> None:
     programmes = load_programmes()
     student = build_student_profile()
 
-    if st.button("Run Analysis", type="primary"):
-        results = evaluate_programmes(student, programmes)
-        summary = recommendation_summary(results)
-        grouped = group_results_by_status(results)
+from core.pipeline import run_full_analysis
+from core.student import build_student_profile
 
-        st.subheader("Results Summary")
-        render_summary(summary)
+if st.button("Run Analysis", type="primary"):
+    # Build student using your UI inputs
+    student = build_student_profile(
+        gender=gender,
+        alevel_subjects=[
+            {"subject": s.subject, "grade": s.grade}
+            for s in selected_subjects
+        ],
+        general_paper=general_paper,
+        sub_math_or_ict=sub_math_or_ict,
+        distinctions=distinctions,
+        credits=credits,
+        passes=passes,
+        district=district,
+        citizenship=citizenship,
+    )
 
-        st.subheader("Top Recommendations")
-        render_results_table(top_results(results, limit=10, eligible_only=True))
-
-        with st.expander("Safe Options"):
-            render_results_table(grouped.get("SAFE", []))
-
-        with st.expander("Borderline Options"):
-            render_results_table(grouped.get("BORDERLINE", []))
-
-        with st.expander("Risky Options"):
-            render_results_table(grouped.get("RISKY", []))
-
-        with st.expander("Not Eligible"):
-            render_results_table(grouped.get("NOT_ELIGIBLE", []))
-
-        st.subheader("Search for a Course")
-        query = st.text_input("Search by programme name, university, or code")
-        searched = search_results(results, query) if query else results
-        render_results_table(searched)
+    results = run_full_analysis(student)
 
 
 if __name__ == "__main__":
