@@ -1,1 +1,43 @@
+[
+  {
+    "university": "Makerere University",
+    "programme_name": "BSc Civil Engineering",
+    "code": "CIV",
+    "duration": 4,
+    "schemes": ["GS", "PS"],
 
+    "essential": {
+      "type": "fixed",
+      "subjects": ["Mathematics", "Physics"],
+      "count": 2,
+      "weight": 3
+    },
+
+    "relevant": {
+      "type": "best_of",
+      "subjects": [
+        "Chemistry",
+        "Economics",
+        "Geography",
+        "Entrepreneurship"
+      ],
+      "count": 1,
+      "weight": 2
+    },
+
+    "desirable": {
+      "type": "optional",
+      "subjects": ["General Paper", "Computer Studies"],
+      "count": 2,
+      "weight": 1
+    },
+
+    "cutoffs": {
+      "GS": 49.3,
+      "DQ": 46.2,
+      "PS": null
+    },
+
+    "notes": "Requires strong mathematics and physics background"
+  }
+]
