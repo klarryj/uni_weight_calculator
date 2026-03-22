@@ -1,5 +1,5 @@
-from dataclasses import dataclass
-from typing import List, Dict, Optional
+from dataclasses import dataclass, field
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -28,24 +28,62 @@ class StudentProfile:
 
 @dataclass
 class RuleBlock:
-    type: str  # fixed, best_of, optional, remaining_best, and_or
+    type: str
     subjects: Optional[List[str]] = None
     count: Optional[int] = None
     weight: int = 0
+    subject_sets: Optional[List[List[str]]] = None
+    min_count: Optional[int] = None
+    max_count: Optional[int] = None
+    source_text: Optional[str] = None
+    extra: Dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass
 class Programme:
     university: str
-    programme_name: str
     code: str
-    duration: Optional[int]
+    programme_name: str
+    duration_years: Optional[int]
+    level: Optional[str]
     schemes: List[str]
-    essential: RuleBlock
+    has_cutoff_2025_2026: bool = False
+
+
+@dataclass
+class CutoffRecord:
+    university: str
+    code: str
+    academic_year: str
+    cutoff_type: str
+    value: Optional[float] = None
+    female: Optional[float] = None
+    male: Optional[float] = None
+    options: Optional[Dict[str, Any]] = None
+
+
+@dataclass
+class SubjectRule:
+    university: str
+    code: str
+    programme_name: str
+    essential: Optional[RuleBlock]
     relevant: Optional[RuleBlock]
     desirable: Optional[RuleBlock]
-    cutoffs: Dict[str, Optional[float]]
-    notes: Optional[str] = None
+    raw_essential_text: Optional[str] = None
+    raw_relevant_text: Optional[str] = None
+    raw_desirable_text: Optional[str] = None
+    source_pages: List[int] = field(default_factory=list)
+    match_confidence: Optional[str] = None
+    normalization_status: Optional[str] = None
+    special_requirements: List[str] = field(default_factory=list)
+
+
+@dataclass
+class University:
+    name: str
+    short_code: str
+    display_order: int
 
 
 @dataclass
