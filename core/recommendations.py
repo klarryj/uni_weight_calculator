@@ -3,12 +3,38 @@ from typing import Dict, List
 from core.models import ProgrammeResult
 
 
-def group_results_by_status(results: List[ProgrammeResult]) -> Dict[str, List[ProgrammeResult]]:
+STATUS_PRIORITY = {
+    "SAFE": 5,
+    "BORDERLINE": 4,
+    "RISKY": 3,
+    "NO_CUTOFF": 2,
+    "NOT_ELIGIBLE": 1,
+}
+
+
+def sort_results(results: List[ProgrammeResult]) -> List[ProgrammeResult]:
+    """
+    Sort results by:
+    1. Status priority
+    2. Weight (descending)
+    """
+
+    return sorted(
+        results,
+        key=lambda r: (
+            STATUS_PRIORITY.get(r.status, 0),
+            r.weight,
+        ),
+        reverse=True,
+    )
+
+
+def group_by_status(results: List[ProgrammeResult]) -> Dict[str, List[ProgrammeResult]]:
     grouped = {
         "SAFE": [],
         "BORDERLINE": [],
         "RISKY": [],
-        "NO_DATA": [],
+        "NO_CUTOFF": [],
         "NOT_ELIGIBLE": [],
     }
 
@@ -18,58 +44,73 @@ def group_results_by_status(results: List[ProgrammeResult]) -> Dict[str, List[Pr
     return grouped
 
 
-def filter_eligible_results(results: List[ProgrammeResult]) -> List[ProgrammeResult]:
-    return [result for result in results if result.eligible]
+def top_recommendations(
+    results: List[ProgrammeResult],
+    limit: int = 10,
+    include_borderline: bool = True,
+) -> List[ProgrammeResult]:
+    """
+    Returns top recommended programmes.
+    """
+
+    sorted_results = sort_results(results)
+
+    selected = []
+
+    for result in sorted_results:
+        if result.status == "SAFE":
+            selected.append(result)
+        elif include_borderline and result.status == "BORDERLINE":
+            selected.append(result)
+
+        if len(selected) >= limit:
+            break
+
+    return selected
 
 
-def filter_results_by_university(results: List[ProgrammeResult], university: str) -> List[ProgrammeResult]:
-    target = university.strip().lower()
-    return [
-        result for result in results
-        if result.programme.university.strip().lower() == target
+def alternative_options(
+    results: List[ProgrammeResult],
+    limit: int = 10,
+) -> List[ProgrammeResult]:
+    """
+    Returns backup options (borderline + risky).
+    """
+
+    sorted_results = sort_results(results)
+
+    alternatives = [
+        r for r in sorted_results
+        if r.status in ("BORDERLINE", "RISKY")
     ]
 
-
-def filter_results_by_scheme(results: List[ProgrammeResult], scheme: str) -> List[ProgrammeResult]:
-    target = scheme.strip().upper()
-    filtered = []
-
-    for result in results:
-        if target in (result.programme.schemes or []):
-            filtered.append(result)
-
-    return filtered
+    return alternatives[:limit]
 
 
-def top_results(results: List[ProgrammeResult], limit: int = 10, eligible_only: bool = True) -> List[ProgrammeResult]:
-    working = filter_eligible_results(results) if eligible_only else results
-    return working[:limit]
+def filter_eligible(results: List[ProgrammeResult]) -> List[ProgrammeResult]:
+    return [r for r in results if r.eligible]
 
 
-def recommendation_summary(results: List[ProgrammeResult]) -> Dict[str, int]:
+def summary_counts(results: List[ProgrammeResult]) -> Dict[str, int]:
     summary = {
         "total": len(results),
-        "eligible": 0,
         "safe": 0,
         "borderline": 0,
         "risky": 0,
-        "no_data": 0,
+        "no_cutoff": 0,
         "not_eligible": 0,
     }
 
-    for result in results:
-        if result.eligible:
-            summary["eligible"] += 1
-
-        if result.status == "SAFE":
+    for r in results:
+        if r.status == "SAFE":
             summary["safe"] += 1
-        elif result.status == "BORDERLINE":
+        elif r.status == "BORDERLINE":
             summary["borderline"] += 1
-        elif result.status == "RISKY":
+        elif r.status == "RISKY":
             summary["risky"] += 1
-        elif result.status == "NO_DATA":
-            summary["no_data"] += 1
-        elif result.status == "NOT_ELIGIBLE":
+        elif r.status == "NO_CUTOFF":
+            summary["no_cutoff"] += 1
+        elif r.status == "NOT_ELIGIBLE":
             summary["not_eligible"] += 1
 
     return summary
