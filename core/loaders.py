@@ -80,14 +80,29 @@ def load_programmes() -> List[Programme]:
     programmes: List[Programme] = []
 
     for item in raw_items:
+        university = str(item.get("university") or "").strip()
+        code = str(item.get("code") or "").strip().upper()
+        programme_name = str(item.get("programme_name") or "").strip()
+        level = str(item.get("level") or "").strip()
+
+        raw_schemes = item.get("schemes") or []
+        schemes = [
+            str(scheme).strip().upper()
+            for scheme in raw_schemes
+            if str(scheme).strip()
+        ]
+
+        if not university or not code or not programme_name:
+            continue
+
         programmes.append(
             Programme(
-                university=item["university"].strip(),
-                code=item["code"].strip().upper(),
-                programme_name=item["programme_name"].strip(),
+                university=university,
+                code=code,
+                programme_name=programme_name,
                 duration_years=item.get("duration_years"),
-                level=item.get("level"),
-                schemes=[scheme.strip().upper() for scheme in item.get("schemes", [])],
+                level=level,
+                schemes=schemes,
                 has_cutoff_2025_2026=bool(item.get("has_cutoff_2025_2026", False)),
             )
         )
