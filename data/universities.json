@@ -1,12 +1,52 @@
 [
-  "Makerere University",
-  "Kyambogo University",
-  "Mbarara University of Science and Technology",
-  "Busitema University",
-  "Gulu University",
-  "Kabale University",
-  "Lira University",
-  "Muni University",
-  "Soroti University",
-  "Mountains of the Moon University"
+  {
+    "name": "Makerere University",
+    "short_code": "MAK",
+    "display_order": 1
+  },
+  {
+    "name": "Mbarara University of Science and Technology",
+    "short_code": "MUST",
+    "display_order": 2
+  },
+  {
+    "name": "Kyambogo University",
+    "short_code": "KYU",
+    "display_order": 3
+  },
+  {
+    "name": "Gulu University",
+    "short_code": "GU",
+    "display_order": 4
+  },
+  {
+    "name": "Busitema University",
+    "short_code": "BUS",
+    "display_order": 5
+  },
+  {
+    "name": "Muni University",
+    "short_code": "MUNI",
+    "display_order": 6
+  },
+  {
+    "name": "Kabale University",
+    "short_code": "KAB",
+    "display_order": 7
+  },
+  {
+    "name": "Lira University",
+    "short_code": "LIRA",
+    "display_order": 8
+  },
+  {
+    "name": "Soroti University",
+    "short_code": "SUN",
+    "display_order": 9
+  },
+  {
+    "name": "Mountains of the Moon University",
+    "short_code": "MMU",
+    "display_order": 10
+  }
 ]
