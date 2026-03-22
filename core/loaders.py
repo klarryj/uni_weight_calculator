@@ -13,13 +13,14 @@ PROGRAMMES_FILE = DATA_DIR / "programmes.json"
 CUTOFFS_FILE = DATA_DIR / "cutoffs_2025_2026.json"
 SUBJECT_RULES_FILE = DATA_DIR / "subject_rules.json"
 
-def _clean_str(value, upper: bool = False, lower: bool = False) -> str:
+
+def _clean_str(value: Any, upper: bool = False, lower: bool = False) -> str:
     if value is None:
         return ""
 
     text = str(value).strip()
 
-    if not text or text.lower() == "nan":
+    if not text or text.lower() in {"nan", "none", "null"}:
         return ""
 
     if upper:
@@ -31,11 +32,14 @@ def _clean_str(value, upper: bool = False, lower: bool = False) -> str:
     return text
 
 
-def _clean_list_of_str(values, upper: bool = False, lower: bool = False) -> list[str]:
+def _clean_list_of_str(values: Any, upper: bool = False, lower: bool = False) -> List[str]:
     if not values:
         return []
 
-    cleaned = []
+    if not isinstance(values, list):
+        values = [values]
+
+    cleaned: List[str] = []
     for value in values:
         text = _clean_str(value, upper=upper, lower=lower)
         if text:
@@ -52,15 +56,24 @@ def _read_json(path: Path) -> Any:
 
 
 def _normalize_key(text: str) -> str:
-    return " ".join(text.strip().lower().split())
+    return " ".join(_clean_str(text, lower=True).split())
 
 
 def make_programme_key(university: str, code: str) -> Tuple[str, str]:
-    return (_normalize_key(university), code.strip().upper())
+    return (_normalize_key(university), _clean_str(code, upper=True))
+
+
+def _safe_int(value: Any, default: int = 0) -> int:
+    try:
+        if value is None or _clean_str(value) == "":
+            return default
+        return int(value)
+    except (TypeError, ValueError):
+        return default
 
 
 def _build_rule_block(data: Dict[str, Any] | None) -> RuleBlock | None:
-    if not data:
+    if not data or not isinstance(data, dict):
         return None
 
     known_keys = {
@@ -75,15 +88,47 @@ def _build_rule_block(data: Dict[str, Any] | None) -> RuleBlock | None:
     }
     extra = {key: value for key, value in data.items() if key not in known_keys}
 
+    subjects = data.get("subjects")
+    if isinstance(subjects, list):
+        subjects = _clean_list_of_str(subjects)
+    elif subjects is not None:
+        subjects = [_clean_str(subjects)] if _clean_str(subjects) else None
+    else:
+        subjects = None
+
+    subject_sets = data.get("subject_sets")
+    if isinstance(subject_sets, list):
+        cleaned_sets = []
+        for subject_set in subject_sets:
+            if isinstance(subject_set, list):
+                cleaned = _clean_list_of_str(subject_set)
+                if cleaned:
+                    cleaned_sets.append(cleaned)
+            elif isinstance(subject_set, dict):
+                cleaned_dict = {}
+                for key, value in subject_set.items():
+                    if isinstance(value, list):
+                        cleaned_dict[key] = _clean_list_of_str(value)
+                    else:
+                        cleaned_dict[key] = value
+                cleaned_sets.append(cleaned_dict)
+            else:
+                cleaned = _clean_str(subject_set)
+                if cleaned:
+                    cleaned_sets.append(cleaned)
+        subject_sets = cleaned_sets or None
+    else:
+        subject_sets = None
+
     return RuleBlock(
-        type=data.get("type", "").strip(),
-        subjects=data.get("subjects"),
+        type=_clean_str(data.get("type")),
+        subjects=subjects,
         count=data.get("count"),
-        weight=int(data.get("weight", 0) or 0),
-        subject_sets=data.get("subject_sets"),
+        weight=_safe_int(data.get("weight"), default=0),
+        subject_sets=subject_sets,
         min_count=data.get("min_count"),
         max_count=data.get("max_count"),
-        source_text=data.get("source_text"),
+        source_text=_clean_str(data.get("source_text")),
         extra=extra,
     )
 
@@ -93,11 +138,21 @@ def load_universities() -> List[University]:
     universities: List[University] = []
 
     for item in raw_items:
+        if not isinstance(item, dict):
+            continue
+
+        name = _clean_str(item.get("name"))
+        short_code = _clean_str(item.get("short_code"), upper=True)
+        display_order = _safe_int(item.get("display_order"), default=9999)
+
+        if not name or not short_code:
+            continue
+
         universities.append(
             University(
-                name=item["name"].strip(),
-                short_code=item["short_code"].strip().upper(),
-                display_order=int(item["display_order"]),
+                name=name,
+                short_code=short_code,
+                display_order=display_order,
             )
         )
 
@@ -110,6 +165,9 @@ def load_programmes() -> List[Programme]:
     programmes: List[Programme] = []
 
     for item in raw_items:
+        if not isinstance(item, dict):
+            continue
+
         university = _clean_str(item.get("university"))
         code = _clean_str(item.get("code"), upper=True)
         programme_name = _clean_str(item.get("programme_name"))
@@ -139,6 +197,9 @@ def load_cutoffs() -> List[CutoffRecord]:
     cutoffs: List[CutoffRecord] = []
 
     for item in raw_items:
+        if not isinstance(item, dict):
+            continue
+
         university = _clean_str(item.get("university"))
         code = _clean_str(item.get("code"), upper=True)
         academic_year = _clean_str(item.get("academic_year"))
@@ -169,21 +230,39 @@ def load_subject_rules() -> List[SubjectRule]:
     rules: List[SubjectRule] = []
 
     for item in raw_items:
+        if not isinstance(item, dict):
+            continue
+
+        university = _clean_str(item.get("university"))
+        code = _clean_str(item.get("code"), upper=True)
+        programme_name = _clean_str(item.get("programme_name"))
+
+        if not university or not code or not programme_name:
+            continue
+
         rules.append(
             SubjectRule(
-                university=item["university"].strip(),
-                code=item["code"].strip().upper(),
-                programme_name=item["programme_name"].strip(),
+                university=university,
+                code=code,
+                programme_name=programme_name,
                 essential=_build_rule_block(item.get("essential")),
                 relevant=_build_rule_block(item.get("relevant")),
                 desirable=_build_rule_block(item.get("desirable")),
-                raw_essential_text=item.get("raw_essential_text") or item.get("essential_text"),
-                raw_relevant_text=item.get("raw_relevant_text") or item.get("relevant_text"),
-                raw_desirable_text=item.get("raw_desirable_text") or item.get("desirable_text"),
+                raw_essential_text=_clean_str(
+                    item.get("raw_essential_text") or item.get("essential_text")
+                ),
+                raw_relevant_text=_clean_str(
+                    item.get("raw_relevant_text") or item.get("relevant_text")
+                ),
+                raw_desirable_text=_clean_str(
+                    item.get("raw_desirable_text") or item.get("desirable_text")
+                ),
                 source_pages=item.get("source_pages", []),
                 match_confidence=item.get("match_confidence"),
-                normalization_status=item.get("normalization_status"),
-                special_requirements=item.get("special_requirements", []),
+                normalization_status=_clean_str(item.get("normalization_status")),
+                special_requirements=_clean_list_of_str(
+                    item.get("special_requirements", [])
+                ),
             )
         )
 
@@ -219,10 +298,6 @@ def validate_data_integrity(
     cutoffs: List[CutoffRecord],
     subject_rules: List[SubjectRule],
 ) -> Dict[str, List[str]]:
-    """
-    Returns warnings/errors rather than crashing immediately.
-    This helps you inspect data issues quickly during build.
-    """
     issues = {
         "missing_cutoffs_for_programmes": [],
         "missing_rules_for_programmes": [],
