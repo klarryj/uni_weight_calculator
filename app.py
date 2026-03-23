@@ -395,20 +395,18 @@ def render_result_card(
             st.error("You do not meet minimum requirements.")
 
     if allow_shortlist and not compact:
-        if is_shortlisted(result):
-            if st.button(
-                f"Remove from shortlist - {result.programme.code} - {result.programme.university}",
-                key=f"remove_{result_key(result)}",
-            ):
+        action_label = (
+            f"Remove from shortlist - {result.programme.code} - {result.programme.university}"
+            if is_shortlisted(result)
+            else f"Add to shortlist - {result.programme.code} - {result.programme.university}"
+        )
+
+        if st.button(action_label, key=f"shortlist_{result_key(result)}"):
+            if is_shortlisted(result):
                 remove_from_shortlist(result)
-                st.rerun()
-        else:
-            if st.button(
-                f"Add to shortlist - {result.programme.code} - {result.programme.university}",
-                key=f"add_{result_key(result)}",
-            ):
+            else:
                 add_to_shortlist(result)
-                st.rerun()
+            st.rerun()
 
 
 def render_result_group(
@@ -440,150 +438,7 @@ def render_result_group(
         st.caption(f"Showing {limit} of {len(results)} results in this section.")
 
 
-def main() -> None:
-    if "latest_results" not in st.session_state:
-        st.session_state.latest_results = None
-
-    if "latest_student" not in st.session_state:
-        st.session_state.latest_student = None
-
-    if "shortlist" not in st.session_state:
-        st.session_state.shortlist = []
-
-    st.markdown(
-        """
-        <div class="hero-card">
-            <h1>🎓 Uni Compass Uganda</h1>
-            <p style="margin-top:0.6rem; font-size:1rem;">
-                Find where your results can place you across Uganda's public universities.
-                See your strongest options, borderline choices, and backup paths.
-            </p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-        <div class="section-card">
-            <h3 style="margin-bottom:0.35rem;">How it works</h3>
-            <div class="mini-note">
-                Enter your A-Level and O-Level performance, then run the analysis to see where you are strongest,
-                where you are borderline, and which backup options are worth considering.
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    with st.form("student_input_form"):
-        st.subheader("Your academic profile")
-
-        col1, col2 = st.columns(2)
-        with col1:
-            gender = st.selectbox("Gender", ["Male", "Female"])
-        with col2:
-            citizenship = st.selectbox("Citizenship", ["Ugandan", "Non-Ugandan"])
-
-        district = st.text_input(
-            "Home District",
-            placeholder="Optional, useful for District Quota",
-        )
-
-        st.markdown("### A-Level subjects")
-        s1_col, g1_col = st.columns([2, 1])
-        with s1_col:
-            subject_1 = st.selectbox("Subject 1", SUBJECT_OPTIONS, key="subject_1")
-        with g1_col:
-            grade_1 = st.selectbox("Grade 1", GRADE_OPTIONS, key="grade_1")
-
-        subject_2_options = [s for s in SUBJECT_OPTIONS if s != subject_1]
-        s2_col, g2_col = st.columns([2, 1])
-        with s2_col:
-            subject_2 = st.selectbox("Subject 2", subject_2_options, key="subject_2")
-        with g2_col:
-            grade_2 = st.selectbox("Grade 2", GRADE_OPTIONS, key="grade_2")
-
-        subject_3_options = [
-            s for s in SUBJECT_OPTIONS if s not in {subject_1, subject_2}
-        ]
-        s3_col, g3_col = st.columns([2, 1])
-        with s3_col:
-            subject_3 = st.selectbox("Subject 3", subject_3_options, key="subject_3")
-        with g3_col:
-            grade_3 = st.selectbox("Grade 3", GRADE_OPTIONS, key="grade_3")
-
-        st.markdown("### Additional information")
-        extra1, extra2 = st.columns(2)
-        with extra1:
-            general_paper = st.selectbox("General Paper Grade", GP_OPTIONS)
-        with extra2:
-            sub_math_or_ict = st.checkbox("Passed Sub-Math / ICT / Computer Studies")
-
-        st.markdown("### O-Level summary")
-        o1, o2, o3 = st.columns(3)
-        with o1:
-            distinctions = st.number_input(
-                "Distinctions",
-                min_value=0,
-                max_value=12,
-                value=0,
-            )
-        with o2:
-            credits = st.number_input(
-                "Credits",
-                min_value=0,
-                max_value=12,
-                value=0,
-            )
-        with o3:
-            passes = st.number_input(
-                "Passes",
-                min_value=0,
-                max_value=12,
-                value=0,
-            )
-
-        submitted = st.form_submit_button("Run Analysis")
-
-    if not submitted:
-        return
-
-    raw_subjects = [
-        {"subject": subject_1, "grade": grade_1},
-        {"subject": subject_2, "grade": grade_2},
-        {"subject": subject_3, "grade": grade_3},
-    ]
-
-    student = build_student_profile(
-        gender=gender,
-        alevel_subjects=raw_subjects,
-        general_paper=general_paper,
-        sub_math_or_ict=sub_math_or_ict,
-        distinctions=distinctions,
-        credits=credits,
-        passes=passes,
-        district=district,
-        citizenship=citizenship,
-    )
-
-    validation = validate_student_profile(student)
-
-    if validation["errors"]:
-        for error in validation["errors"]:
-            st.error(error)
-        return
-
-    if validation["warnings"]:
-        for warning in validation["warnings"]:
-            st.warning(warning)
-
-    with st.spinner("Analyzing your options..."):
-        results = run_full_analysis(student)
-
-    st.session_state.latest_results = results
-    st.session_state.latest_student = student
-
+def render_results_dashboard(student, results) -> None:
     summary = results["summary"]
     top = results["top_recommendations"]
     alternatives = results["alternatives"]
@@ -863,6 +718,155 @@ def main() -> None:
         with st.expander("Data integrity notes"):
             st.write("These are internal dataset warnings that may help during build and cleanup.")
             st.json(integrity_report)
+
+
+def main() -> None:
+    if "latest_results" not in st.session_state:
+        st.session_state.latest_results = None
+
+    if "latest_student" not in st.session_state:
+        st.session_state.latest_student = None
+
+    if "shortlist" not in st.session_state:
+        st.session_state.shortlist = []
+
+    st.markdown(
+        """
+        <div class="hero-card">
+            <h1>🎓 Uni Compass Uganda</h1>
+            <p style="margin-top:0.6rem; font-size:1rem;">
+                Find where your results can place you across Uganda's public universities.
+                See your strongest options, borderline choices, and backup paths.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
+        <div class="section-card">
+            <h3 style="margin-bottom:0.35rem;">How it works</h3>
+            <div class="mini-note">
+                Enter your A-Level and O-Level performance, then run the analysis to see where you are strongest,
+                where you are borderline, and which backup options are worth considering.
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    with st.form("student_input_form"):
+        st.subheader("Your academic profile")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            gender = st.selectbox("Gender", ["Male", "Female"])
+        with col2:
+            citizenship = st.selectbox("Citizenship", ["Ugandan", "Non-Ugandan"])
+
+        district = st.text_input(
+            "Home District",
+            placeholder="Optional, useful for District Quota",
+        )
+
+        st.markdown("### A-Level subjects")
+        s1_col, g1_col = st.columns([2, 1])
+        with s1_col:
+            subject_1 = st.selectbox("Subject 1", SUBJECT_OPTIONS, key="subject_1")
+        with g1_col:
+            grade_1 = st.selectbox("Grade 1", GRADE_OPTIONS, key="grade_1")
+
+        subject_2_options = [s for s in SUBJECT_OPTIONS if s != subject_1]
+        s2_col, g2_col = st.columns([2, 1])
+        with s2_col:
+            subject_2 = st.selectbox("Subject 2", subject_2_options, key="subject_2")
+        with g2_col:
+            grade_2 = st.selectbox("Grade 2", GRADE_OPTIONS, key="grade_2")
+
+        subject_3_options = [
+            s for s in SUBJECT_OPTIONS if s not in {subject_1, subject_2}
+        ]
+        s3_col, g3_col = st.columns([2, 1])
+        with s3_col:
+            subject_3 = st.selectbox("Subject 3", subject_3_options, key="subject_3")
+        with g3_col:
+            grade_3 = st.selectbox("Grade 3", GRADE_OPTIONS, key="grade_3")
+
+        st.markdown("### Additional information")
+        extra1, extra2 = st.columns(2)
+        with extra1:
+            general_paper = st.selectbox("General Paper Grade", GP_OPTIONS)
+        with extra2:
+            sub_math_or_ict = st.checkbox("Passed Sub-Math / ICT / Computer Studies")
+
+        st.markdown("### O-Level summary")
+        o1, o2, o3 = st.columns(3)
+        with o1:
+            distinctions = st.number_input(
+                "Distinctions",
+                min_value=0,
+                max_value=12,
+                value=0,
+            )
+        with o2:
+            credits = st.number_input(
+                "Credits",
+                min_value=0,
+                max_value=12,
+                value=0,
+            )
+        with o3:
+            passes = st.number_input(
+                "Passes",
+                min_value=0,
+                max_value=12,
+                value=0,
+            )
+
+        submitted = st.form_submit_button("Run Analysis")
+
+    if submitted:
+        raw_subjects = [
+            {"subject": subject_1, "grade": grade_1},
+            {"subject": subject_2, "grade": grade_2},
+            {"subject": subject_3, "grade": grade_3},
+        ]
+
+        student = build_student_profile(
+            gender=gender,
+            alevel_subjects=raw_subjects,
+            general_paper=general_paper,
+            sub_math_or_ict=sub_math_or_ict,
+            distinctions=distinctions,
+            credits=credits,
+            passes=passes,
+            district=district,
+            citizenship=citizenship,
+        )
+
+        validation = validate_student_profile(student)
+
+        if validation["errors"]:
+            for error in validation["errors"]:
+                st.error(error)
+            return
+
+        if validation["warnings"]:
+            for warning in validation["warnings"]:
+                st.warning(warning)
+
+        with st.spinner("Analyzing your options..."):
+            results = run_full_analysis(student)
+
+        st.session_state.latest_results = results
+        st.session_state.latest_student = student
+
+    if st.session_state.latest_results is not None and st.session_state.latest_student is not None:
+        render_results_dashboard(
+            st.session_state.latest_student,
+            st.session_state.latest_results,
+        )
 
 
 if __name__ == "__main__":
