@@ -581,12 +581,12 @@ def main() -> None:
     st.session_state.latest_results = results
     st.session_state.latest_student = student
 
-elif st.session_state.latest_results is not None and st.session_state.latest_student is not None:
+    elif st.session_state.latest_results is not None and st.session_state.latest_student is not None:
     results = st.session_state.latest_results
     student = st.session_state.latest_student
 
-else:
-    return
+    else:
+        return
 
     if validation["warnings"]:
         for warning in validation["warnings"]:
