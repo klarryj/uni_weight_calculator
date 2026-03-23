@@ -545,11 +545,8 @@ def main() -> None:
             )
 
         submitted = st.form_submit_button("Run Analysis")
-
-    if not submitted:
-        return
-
-    raw_subjects = [
+    if submitted:
+            raw_subjects = [
         {"subject": subject_1, "grade": grade_1},
         {"subject": subject_2, "grade": grade_2},
         {"subject": subject_3, "grade": grade_3},
@@ -573,6 +570,23 @@ def main() -> None:
         for error in validation["errors"]:
             st.error(error)
         return
+
+    if validation["warnings"]:
+        for warning in validation["warnings"]:
+            st.warning(warning)
+
+    with st.spinner("Analyzing your options..."):
+        results = run_full_analysis(student)
+
+    st.session_state.latest_results = results
+    st.session_state.latest_student = student
+
+elif st.session_state.latest_results is not None and st.session_state.latest_student is not None:
+    results = st.session_state.latest_results
+    student = st.session_state.latest_student
+
+else:
+    return
 
     if validation["warnings"]:
         for warning in validation["warnings"]:
