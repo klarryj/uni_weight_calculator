@@ -335,6 +335,7 @@ def render_result_card(
     result,
     compact: bool = False,
     allow_shortlist: bool = False,
+    button_namespace: str = "default",
 ) -> None:
     schemes_html = render_scheme_badges(result.programme.schemes)
     status_class = status_css(result.status)
@@ -401,7 +402,9 @@ def render_result_card(
             else f"Add to shortlist - {result.programme.code} - {result.programme.university}"
         )
 
-        if st.button(action_label, key=f"shortlist_{result_key(result)}"):
+        unique_button_key = f"shortlist_{button_namespace}_{result_key(result)}"
+
+        if st.button(action_label, key=unique_button_key):
             if is_shortlisted(result):
                 remove_from_shortlist(result)
             else:
@@ -415,6 +418,7 @@ def render_result_group(
     results,
     limit: int | None = None,
     allow_shortlist: bool = False,
+    button_namespace: str = "group",
 ) -> None:
     st.markdown(
         f"""
@@ -431,8 +435,12 @@ def render_result_group(
         return
 
     items = results[:limit] if limit else results
-    for result in items:
-        render_result_card(result, allow_shortlist=allow_shortlist)
+    for i, result in enumerate(items):
+        render_result_card(
+            result,
+            allow_shortlist=allow_shortlist,
+            button_namespace=f"{button_namespace}_{i}",
+        )
 
     if limit and len(results) > limit:
         st.caption(f"Showing {limit} of {len(results)} results in this section.")
@@ -543,6 +551,7 @@ def render_results_dashboard(student, results) -> None:
         top,
         limit=5,
         allow_shortlist=True,
+        button_namespace="top",
     )
 
     render_result_group(
@@ -551,6 +560,7 @@ def render_results_dashboard(student, results) -> None:
         alternatives,
         limit=5,
         allow_shortlist=True,
+        button_namespace="alternatives",
     )
 
     st.markdown(
@@ -633,8 +643,12 @@ def render_results_dashboard(student, results) -> None:
     )
 
     if chosen_results:
-        for result in chosen_results[:max_items]:
-            render_result_card(result, allow_shortlist=True)
+        for i, result in enumerate(chosen_results[:max_items]):
+            render_result_card(
+                result,
+                allow_shortlist=True,
+                button_namespace=f"explore_{selected_group}_{i}",
+            )
     else:
         st.info("No results found in this group.")
 
@@ -672,8 +686,12 @@ def render_results_dashboard(student, results) -> None:
     if shortlisted_results:
         st.write(f"You have {len(shortlisted_results)} programme(s) in your shortlist.")
 
-        for result in shortlisted_results:
-            render_result_card(result, allow_shortlist=True)
+        for i, result in enumerate(shortlisted_results):
+            render_result_card(
+                result,
+                allow_shortlist=True,
+                button_namespace=f"shortlist_view_{i}",
+            )
 
         compare_options = [
             f"{r.programme.programme_name} | {r.programme.university} | {r.programme.code}"
@@ -862,7 +880,10 @@ def main() -> None:
         st.session_state.latest_results = results
         st.session_state.latest_student = student
 
-    if st.session_state.latest_results is not None and st.session_state.latest_student is not None:
+    if (
+        st.session_state.latest_results is not None
+        and st.session_state.latest_student is not None
+    ):
         render_results_dashboard(
             st.session_state.latest_student,
             st.session_state.latest_results,
