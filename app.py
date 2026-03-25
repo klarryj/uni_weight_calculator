@@ -754,7 +754,7 @@ def main() -> None:
             <h1>🎓 Uni Compass Uganda</h1>
             <p style="margin-top:0.6rem; font-size:1rem;">
                 Find where your results can place you across Uganda's public universities.
-                See your strongest options, borderline choices, and backup paths.
+                See your strongest options, borderline choices, and backup paths. This is just the basic version, premium with better features is underway!
             </p>
         </div>
         """,
