@@ -18,8 +18,8 @@ st.markdown(
     }
 
     .block-container {
-        padding-top: 3rem;
-        padding-bottom: 2rem;
+        padding-top: 1.2rem;
+        padding-bottom: 5rem;
         max-width: 1100px;
     }
 
@@ -187,9 +187,9 @@ st.markdown(
         font-size: 0.88rem;
     }
 
-    .top-banner {
+    .bottom-banner {
         position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
         width: 100%;
         background: linear-gradient(90deg, #52b788, #95d5b2);
@@ -199,7 +199,7 @@ st.markdown(
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+        box-shadow: 0 -6px 18px rgba(0,0,0,0.15);
         font-size: 0.9rem;
     }
 
@@ -241,7 +241,7 @@ st.markdown(
 
 st.markdown(
     """
-    <div class="top-banner">
+    <div class="bottom-banner">
         <div class="banner-text">
             🎓 Found your course? We can apply for you in 20 minutes.
         </div>
