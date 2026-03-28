@@ -188,8 +188,73 @@ st.markdown(
     }
     </style>
     """,
-    unsafe_allow_html=True,
-)
+    st.markdown("""
+<style>
+.top-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #52b788, #95d5b2);
+    color: #062d1d;
+    padding: 0.55rem 0.8rem;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    font-size: 0.9rem;
+}
+
+.banner-text {
+    font-weight: 600;
+}
+
+.banner-btn {
+    text-decoration: none;
+    background: #062d1d;
+    color: #dff8e8 !important;
+    padding: 0.4rem 0.75rem;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.banner-btn:hover {
+    background: #081c15;
+}
+
+/* push page down so banner doesn't cover content */
+.block-container {
+    padding-top: 3rem !important;
+}
+
+/* mobile tweaks */
+@media (max-width: 600px) {
+    .top-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+        font-size: 0.82rem;
+    }
+
+    .banner-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+</style>
+""", unsafe_allow_html=True)
+st.markdown("""
+<div class="top-banner">
+    <div class="banner-text">
+        🎓 Found your course? We can apply for you in 20 minutes.
+    </div>
+    <a class="banner-btn" href="https://uni-application-assistant.streamlit.app" target="_blank">
+        Apply Now →
+    </a>
+</div>
+""", unsafe_allow_html=True)
 
 
 SUBJECT_OPTIONS = [
